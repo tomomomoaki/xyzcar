@@ -1,6 +1,6 @@
 <h1>新規レビュー作成</h1>
 <%= form_with model: @car, url: cars_path, local: true do |f|%>
-  <%= render 'shared/error_messages', model: @car %>
+  <%= render 'shared/error_messages', model: f.object %>
  
    <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
 
