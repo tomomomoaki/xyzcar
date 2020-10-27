@@ -3,6 +3,7 @@ class SaveCarsTag
   include ActiveModel::Model
   attr_accessor :title, :image, :text, :maker_id, :car_name, :body_type_id, :name, :user_id
 
+
   with_options presence: true do
     validates :title
     validates :text
