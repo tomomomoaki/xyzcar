@@ -1,7 +1,7 @@
 <li class='list'>
-  <%= link_to 'レビュー詳細' do %>
+  <%= link_to  do %>
   <div class='item-img-content'>
-    <%= image_tag car.image.variant(resize:'500x500'), class: "item-img" if car.image.attached? %>
+    <%= image_tag car.image.variant(resize:'200x500'), class: "item-img" if car.image.attached? %>
   </div>
   <div class='item-info'>
     <h3 class='item-name'>
