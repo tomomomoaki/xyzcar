@@ -1,0 +1,20 @@
+<li class='list'>
+  <%= link_to 'レビュー詳細' do %>
+  <div class='item-img-content'>
+    <%= image_tag car.image.variant(resize:'500x500'), class: "item-img" if car.image.attached? %>
+  </div>
+  <div class='item-info'>
+    <h3 class='item-name'>
+      <%= car.title %>
+    </h3>
+    <div class='item-price'>
+      <span><%= car.text %></span>
+      <div class='star-btn'>
+        <span><%= car.maker.name %></span>
+        <span><%= car.car_name %></span>
+        <span><%= car.body_type.name %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</li>
