@@ -6,9 +6,6 @@ class SaveCarsTag
   with_options presence: true do
     validates :title
     validates :text
-    validates :maker_id
-    validates :car_name
-    validates :body_type_id
   end
 
   def save

@@ -1,5 +1,5 @@
 <%= form_with model: @car, url: cars_path, local: true do |f|%>
-  <%#= render 'error_messages', model: @car_tag %>
+  <%= render 'shared/error_messages', model: @car %>
  
    <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
 
