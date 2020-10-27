@@ -1,0 +1,21 @@
+<h1>新規レビュー作成</h1>
+<%= form_with model: @car, url: cars_path, local: true do |f|%>
+  <%= render 'shared/error_messages', model: f.object %>
+ 
+   <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
+
+   <%= f.file_field :image, id:"item-image" %>
+
+   <%= f.text_area :text, class:"input-default", id:"text", placeholder:"text" %>
+
+   <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
+   <%= f.text_field :car_name, class:"input-default", id:"car_name", placeholder:"プリウス", maxlength:"15" %>
+
+   <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
+   <%= f.text_field :name, class:"input-tag" %>
+
+   <%= f.submit '投稿する'%>
+
+<% end %>
