@@ -9,7 +9,7 @@
 
    <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
 
-   <%= f.text_area :car_name, class:"input-default", id:"car_name", placeholder:"車名", maxlength:"15" %>
+   <%= f.text_field :car_name, class:"input-default", id:"car_name", placeholder:"車名", maxlength:"15" %>
 
    <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
 

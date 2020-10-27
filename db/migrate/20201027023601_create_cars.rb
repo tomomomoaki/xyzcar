@@ -5,7 +5,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.text :text,         null: false
       t.string :maker_id,   null: false
       t.string :car_name,   null: false
-      t.string :body_type__id,   null: false
+      t.string :body_type_id,   null: false
       t.references :user,    null: false, foreign_key: true
       t.timestamps
     end
