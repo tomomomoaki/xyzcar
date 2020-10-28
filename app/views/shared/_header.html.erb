@@ -1,0 +1,19 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='header'>
+  <div class='title-box'>
+    <h1 class='app-title'>
+      <%= link_to 'car_car', root_path %>
+    </h1>
+  </div>
+  <div class='user-box'>
+    <ul class='user-list'>
+      <% if user_signed_in?%>
+        <li><%=link_to current_user.nickname ,'#', class:'user-nickname'%></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout'%></li>
+      <% else %>
+        <li><%= link_to '新規登録', new_user_registration_path, class:'login' %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class:'new-user' %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>

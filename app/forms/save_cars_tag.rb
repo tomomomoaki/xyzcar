@@ -5,7 +5,7 @@ class SaveCarsTag
 
 
   with_options presence: true do
-    validates :title
+    validates :title, length:{maximum: 40}
     validates :text
   end
 

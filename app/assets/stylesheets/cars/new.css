@@ -1,0 +1,46 @@
+.new-review-form{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 30px 100px;
+  background-color: sandybrown;
+  display: flex;
+  justify-content: center;
+}
+
+.main-new-form{
+  width: 100%
+}
+
+.make-new-text{
+  width: 50%;
+  padding-bottom: 30px;
+  color: black;
+  font-size: 40px;
+}
+
+.form-group{
+  margin: 10px auto; 
+}
+
+.indispensable{
+  color: red;
+}
+
+.car-title{
+  width: 1000px;
+}
+
+.car-text{
+  width: 1000px;
+  height: 300px;
+}
+
+.car-car-name{
+  width: 400px;
+}
+
+.new-review-btn-text{
+  color:black;
+  font-size: 20px;
+}

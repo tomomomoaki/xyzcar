@@ -1,0 +1,64 @@
+a {
+  text-decoration: none;
+}
+
+.list{
+  background-color: #f8f8f8;
+  height:200px;
+  width: calc (80vw - 20px);
+  padding: 10px;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+}
+
+.review-contents{
+  display: flex;
+  text-decoration: none;
+}
+
+.car-img-content{
+  width: 280px;
+  height: 180px;
+  padding: 10px;
+}
+
+.car-img{
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.car-info{
+  width: calc (80vw - 380px);
+  padding: 20px;
+}
+
+.names{
+  display: flex;
+}
+
+.spans{
+  color: rgb(17, 0, 255);
+}
+
+.review-title{
+  width: 750px;
+  color: black;
+  font-size: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.car-name-type{
+  margin-left: 20px;
+}
+
+.review-text-sentence{
+  width: 750px;
+  height: 100px;
+  color: black;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

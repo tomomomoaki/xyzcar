@@ -1,21 +1,57 @@
-<h1>新規レビュー作成</h1>
-<%= form_with model: @car, url: cars_path, local: true do |f|%>
+<%= render "shared/header" %>
+
+<%= form_with model: @car, url: cars_path, class:'new-review-form', local: true do |f|%>
+<div class='main-new-form'>
+  <div class='make-new-text'>新規レビュー作成</div>
+
   <%= render 'shared/error_messages', model: f.object %>
- 
-   <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
 
-   <%= f.file_field :image, id:"item-image" %>
-
-   <%= f.text_area :text, class:"input-default", id:"text", placeholder:"text" %>
-
-   <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-
-   <%= f.text_field :car_name, class:"input-default", id:"car_name", placeholder:"プリウス", maxlength:"15" %>
-
-   <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-
-   <%= f.text_field :name, class:"input-tag" %>
-
-   <%= f.submit '投稿する'%>
-
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">タイトル</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :title, class:"car-title", id:"title", placeholder:"title", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">画像</label>
+    </div>
+    <%= f.file_field :image, id:"car-image" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">本文</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, class:"car-text", id:"text", placeholder:"text" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メーカー</label>
+    </div>
+    <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">車名</label>
+    </div>
+    <%= f.text_field :car_name, class:"car-car-name", id:"car_name", maxlength:"15" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ボディタイプ</label>
+    </div>
+    <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">タグ付け</label>
+    </div>
+    <%= f.text_field :name, class:"car-tag" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit '投稿する'%>
+  </div>
+</div>
 <% end %>

@@ -1,0 +1,23 @@
+.main-window{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.side-bar{
+  background-color: cadetblue;
+  width: 20vw;
+}
+
+.main-review{
+  background-color: darkcyan;
+  width: 80vw;
+  height: 100%;
+}
+
+.new-review-btn{
+  margin: 20px;
+  padding: 10px;
+  border:solid 1px black;
+  background-color: burlywood;
+}

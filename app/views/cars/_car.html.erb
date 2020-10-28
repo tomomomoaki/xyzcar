@@ -1,18 +1,24 @@
 <li class='list'>
-  <%= link_to  do %>
-  <div class='item-img-content'>
-    <%= image_tag car.image.variant(resize:'200x500'), class: "item-img" if car.image.attached? %>
-  </div>
-  <div class='item-info'>
-    <h3 class='item-name'>
-      <%= car.title %>
-    </h3>
-    <div class='item-price'>
-      <span><%= car.text %></span>
-      <div class='star-btn'>
-        <span><%= car.maker.name %></span>
-        <span><%= car.car_name %></span>
-        <span><%= car.body_type.name %></span>
+  <%= link_to class:'review-contents' do %>
+  <div class='review-contents'>
+    <div class='car-img-content'>
+      <%= image_tag car.image.variant(resize:'300x300'), class: "car-img" if car.image.attached? %>
+      <%= image_tag 'img_noimage.png', class: "car-img" unless car.image.attached? %>
+    </div>
+    <div class='car-info'>
+      <div class='review-title'>
+        <%= car.title %>
+      </div>
+      <div class='names'>
+        <div class='user-name'><b><i><%=car.user.nickname%></i></b></div>
+        <div class='car-name-type'>
+          <span class='spans'><%= car.maker.name %>   /</span>
+          <span class='spans'><%= car.car_name %>   /</span>
+          <span class='spans'><%= car.body_type.name %></span>
+        </div>
+      </div>
+      <div class='review-text-sentence'>
+        <%= car.text %>
       </div>
     </div>
   </div>
