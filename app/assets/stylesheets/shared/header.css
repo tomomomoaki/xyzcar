@@ -1,7 +1,7 @@
 .header{
   width: 100vw;
-  height: 15vh;
-  background-color:lightblue;
+  height: 6vh;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,23 +9,22 @@
 
 .title-box{
   width: 20vw;
-  height: 100%;
+  height: 6vh;
   padding: 0 30px;
-  vertical-align: middle;
   text-align: center;
 }
 
-.app-title{
-  color: blue;
-  font-size: 40px;
-  
+.title-box a{
+  height: 6vh;
+  color: #ffffff;
+  font-size: 27px;
+  text-decoration: none;
 }
 
 .user-box{
   height: 100%;
   width: 25vw;
   margin: 0 20px;
-  background-color: blue;
 }
 
 .user-list{

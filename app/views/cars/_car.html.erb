@@ -1,14 +1,17 @@
 <li class='list'>
-  <%= link_to class:'review-contents' do %>
   <div class='review-contents'>
+    <%= link_to car_path(car), class:'review-contents' do %>
     <div class='car-img-content'>
       <%= image_tag car.image.variant(resize:'300x300'), class: "car-img" if car.image.attached? %>
       <%= image_tag 'img_noimage.png', class: "car-img" unless car.image.attached? %>
     </div>
+    <% end %>
     <div class='car-info'>
+      <%= link_to car_path(car), class:'review-contents' do %>
       <div class='review-title'>
         <%= car.title %>
       </div>
+      <% end %>
       <div class='names'>
         <div class='user-name'><b><i><%=car.user.nickname%></i></b></div>
         <div class='car-name-type'>
@@ -18,9 +21,12 @@
         </div>
       </div>
       <div class='review-text-sentence'>
-        <%= car.text %>
+        <% if car.text.length >= 170 %>
+          <%= car.text.slice(0,170) %>...
+        <% else %>
+          <%= car.text %>
+        <% end %>
       </div>
     </div>
   </div>
-  <% end %>
 </li>
