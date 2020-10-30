@@ -1,10 +1,9 @@
 <%= render "shared/header" %>
-
-<%= form_with model: @form, url: cars_path, class:'new-review-form', local: true do |f|%>
+<%= form_with model: @form, class:'new-review-form', local: true do |f|%>
 <div class='main-new-form'>
-  <div class='make-new-text'>新規レビュー作成</div>
+  <div class='make-new-text'>レビュー編集</div>
 
-  <%= render 'shared/error_messages', model: f.object %>
+  <%#= render 'shared/error_messages', model: f.object %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -48,18 +47,10 @@
     <div class='form-text-wrap'>
       <label class="form-text">タグ付け</label>
     </div>
-    （タグごとに「,」で区切ってください）
-    <div class='tag-field'>
-      <div class='tag-form'>
-        <%= f.text_field :name, class:"car-tag", id:'tag-form' %>
-      </div>
-      <div class='put-tags'>
-        <span id='are-tags'></span>
-      </div>
-    </div>
+    <%= f.text_field :name, class:"car-tag", value: @tags %>
   </div>
   <div class="form-group">
-    <%= f.submit '投稿する'%>
+    <%= f.submit '変更する'%>
   </div>
 </div>
 <% end %>

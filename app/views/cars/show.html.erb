@@ -13,8 +13,10 @@
       </div>
       <div class='car-user-name'>
         投稿者：<%=link_to @car.user.nickname %>
-        <%= link_to '編集' %>
-        <%= link_to '削除' %>
+        <% if current_user == @car.user %>
+          <%= link_to '編集', edit_car_path %>
+          <%= link_to '削除' %>
+        <% end %>
       </div>
     </div>
     <div class='car-image-box'>
@@ -23,6 +25,9 @@
     </div>
     <div class='car-text-box'>
       <%= @car.text %>
+    </div>
+    <div class='car-tag-box'>
+      タグ：<% @car.tags.each do |tag| %><%= tag.name %>,<% end %>
     </div>
     <div class='car-comennt-box'>
       <div class='comment-area'>
