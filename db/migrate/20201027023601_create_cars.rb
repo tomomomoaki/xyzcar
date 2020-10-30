@@ -2,6 +2,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
   def change
     create_table :cars do |t|
       t.string :title,      null: false
+      t.string :image
       t.text :text,         null: false
       t.string :maker_id
       t.string :car_name

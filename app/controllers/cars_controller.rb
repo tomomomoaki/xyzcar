@@ -26,7 +26,6 @@ class CarsController < ApplicationController
 
   def edit
     @form = SaveCarsTag.new(car: @car)
-    @tags = @car.tags.pluck(:name).join(',')
   end
 
   def update

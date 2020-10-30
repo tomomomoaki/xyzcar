@@ -8,6 +8,7 @@ class SaveCarsTag
     validates :text
   end
 
+  #// carがすでに保存されているものか、新規のものかで、PUTとPATCHを分ける
   delegate :persisted?, to: :car
 
   def initialize(attributes = nil, car: Car.new)
@@ -21,10 +22,12 @@ class SaveCarsTag
     ActiveRecord::Base.transaction do
       @car.update(title: title, image: image, text: text, maker_id: maker_id, car_name: car_name, body_type_id: body_type_id, user_id: user_id)
 
+      #// @carに紐付くタグがあれば、car_tagsテーブルの紐付くレコードを全て消去する
       @car.car_tags.each do |tag|
         tag.delete
       end
 
+      #// tag_listのタグの数だけ、tagsテーブルと、car_tagsテーブルに保存する
       tag_list.each do |tag_name|
         tag = Tag.where(name: tag_name).first_or_initialize
         tag.save

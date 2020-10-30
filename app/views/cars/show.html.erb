@@ -20,8 +20,8 @@
       </div>
     </div>
     <div class='car-image-box'>
-      <%= image_tag @car.image.variant(resize:'600x600') if @car.image.attached? %>
-      <%= image_tag 'img_noimage.png' unless @car.image.attached? %>
+      <%= image_tag @car.image.url if @car.image? %>
+      <%= image_tag 'img_noimage.png' unless @car.image? %>
     </div>
     <div class='car-text-box'>
       <%= @car.text %>
