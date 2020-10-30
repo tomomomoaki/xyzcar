@@ -15,7 +15,7 @@
         投稿者：<%=link_to @car.user.nickname %>
         <% if current_user == @car.user %>
           <%= link_to '編集', edit_car_path %>
-          <%= link_to '削除' %>
+          <%= link_to '削除', car_path(@car), method: :delete %>
         <% end %>
       </div>
     </div>

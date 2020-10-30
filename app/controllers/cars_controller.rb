@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!, only:[:new]
-  before_action :find_car, only:[:show, :edit, :update]
+  before_action :find_car, only:[:show, :edit, :update, :destroy]
 
   def index
     @cars = Car.all.includes(:user).order('created_at DESC')
@@ -35,6 +35,12 @@ class CarsController < ApplicationController
       return redirect_to car_path(@car)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @car.destroy
+      redirect_to root_path
     end
   end
 
