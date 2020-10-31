@@ -5,7 +5,7 @@ class Car < ApplicationRecord
   belongs_to_active_hash :body_type
 
   belongs_to :user
-  has_many :car_tags
+  has_many :car_tags, dependent: :destroy
   has_many :tags, through: :car_tags
-  has_one_attached :image
+  mount_uploader :image, ImagesUploader
 end

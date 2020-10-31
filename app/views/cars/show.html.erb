@@ -1,0 +1,49 @@
+<%= render 'shared/header'%>
+
+<div class='main-window'>
+  <div class='main-show'>
+    <div class='car-title-box'>
+      <div class='car-title-name'>
+        <%= @car.title %>
+      </div>
+      <div class='car-info'>
+        <span class='spans'><%= @car.maker.name %>   /</span>
+        <span class='spans'><%= @car.car_name %>   /</span>
+        <span class='spans'><%= @car.body_type.name %></span>
+      </div>
+      <div class='car-user-name-box'>
+        <div class='car-user-name'>
+          投稿者：<%=link_to @car.user.nickname %>
+        </div>
+        <div class='car-edit-delete-btn'>
+          <% if current_user == @car.user %>
+            <%= link_to '編集', edit_car_path, class:'car-edit-btn' %>
+            <%= link_to '削除', car_path(@car), method: :delete, class:'car-delete-btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class='car-image-box'>
+      <%= image_tag @car.image.url if @car.image? %>
+      <%= image_tag 'img_noimage.png' unless @car.image? %>
+    </div>
+    <div class='car-tag-box'>
+      タグ：
+      <% @car.tags.each do |tag| %>
+        <span class='car-tag-name' >#<%= tag.name %></span>
+      <% end %>
+    </div>
+    <div class='car-text-box'>
+      <%= @car.text %>
+    </div>
+    <div class='car-comennt-box'>
+      <div class='comment-area'>
+      </div>
+      <div class='comment-form'>
+        <%#= form_with model:'ddd', url:'ddd', local: true do |f| %>
+          <%#= f.text_area class:'comment-text-form'%>
+        <%# end %>
+      </div>
+    </div>
+  </div>
+</div>
