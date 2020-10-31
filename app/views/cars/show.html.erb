@@ -40,9 +40,9 @@
       <div class='comment-area'>
       </div>
       <div class='comment-form'>
-        <%#= form_with model:'ddd', url:'ddd', local: true do |f| %>
-          <%#= f.text_area class:'comment-text-form'%>
-        <%# end %>
+        <%= form_with model: @comment, url: car_comments_path, local: true do |f| %>
+          <%= f.text_area class:'comment-text-form'%>
+        <% end %>
       </div>
     </div>
   </div>
