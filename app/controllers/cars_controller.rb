@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, only:[:new]
+  before_action :authenticate_user!, only:[:new, :edit, :destroy]
   before_action :find_car, only:[:show, :edit, :update, :destroy]
+  before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
     @cars = Car.all.includes(:user).order('created_at DESC')
@@ -31,7 +32,8 @@ class CarsController < ApplicationController
   def update
     @form = SaveCarsTag.new(car_params, car: @car)
     tag_list = params[:car][:name].split(",")
-    if @form.save(tag_list)
+    if @form.valid?
+      @form.save(tag_list)
       return redirect_to car_path(@car)
     else
       render :edit
@@ -54,4 +56,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
   
+  def redirect_root
+    redirect_to root_path unless current_user == @car.user
+  end
 end

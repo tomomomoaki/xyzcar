@@ -17,6 +17,7 @@
       <label class="form-text">画像</label>
     </div>
     <%= f.file_field :image, value: @car.image, id:"car-image" %>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -45,9 +46,11 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">タグ付け</label>
+      <label class="form-text">タグ付け（#抜きで、タグごとに「,」で区切ってください）</label>
     </div>
-    <%= f.text_field :name, class:"car-tag" %>
+    <div class='tag-form'>
+      <%= f.text_field :name, placeholder:'例）かっこいい,すごい', class:"car-tag", id:'tag-form' %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.submit '変更する'%>

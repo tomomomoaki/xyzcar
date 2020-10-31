@@ -21,14 +21,39 @@
   padding: 30px;
 }
 
-.car-title{
+.car-title-name{
   width: 50vw;
+  padding: 0 20px;
   font-size: 30px;
   word-wrap: break-word;
 }
 
-.car-user-name{
+.car-user-name-box{
   padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-edit-delete-btn{
+  height: 25px;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-edit-btn{
+  width: 45px;
+  background-color: darkred;
+  color: white;
+  text-align: center;
+}
+
+.car-delete-btn{
+  width: 45px;
+  padding: auto;
+  background-color: darkred;
+  color: white;
+  text-align: center;
 }
 
 .car-image-box{
@@ -38,6 +63,17 @@
   padding: 10px 30px;
   display: flex;
   justify-content: center;
+}
+
+.car-tag-box{
+  width: 50vw;
+  height: 100%;
+  padding: 0 30px;
+  margin: auto;
+}
+
+.car-tag-name{
+  color: blue;
 }
 
 .car-text-box{

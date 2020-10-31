@@ -58,8 +58,4 @@ class SaveCarsTag
     }
   end
 
-  def split_tag_names
-    tag_names.split(',')
-  end
-
 end

@@ -18,7 +18,6 @@
   color: black;
   font-size: 40px;
 }
-
 .form-group{
   margin: 10px auto; 
 }
@@ -28,27 +27,29 @@
 }
 
 .car-title{
+  padding: 0 10px;
+  font-size: 30px;
   width: 1000px;
 }
 
 .car-text{
+  padding: 0 10px;
   width: 1000px;
   height: 300px;
 }
 
 .car-car-name{
-  width: 400px;
+  width: 300px;
 }
 
-.new-review-btn-text{
-  color:black;
-  font-size: 20px;
+.select-box{
+  width: 300px;
 }
 
-.put-tags{
-  height: 30px;
-  width: 500px;
-  border:solid 1px;
-  margin:20px 0;
-  background-color: #ffffff;
+.tag-form{
+  margin-bottom: 50px;
+}
+
+.car-tag{
+  width: 300px;
 }
