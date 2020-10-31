@@ -36,12 +36,17 @@
     <div class='car-text-box'>
       <%= @car.text %>
     </div>
-    <div class='car-comennt-box'>
+    <div class='car-comment-box'>
+    コメント欄
       <div class='comment-area'>
+        <% @car.comments.each do |comment| %>
+          <%= @comment.user.nickname %>：<%= comment.text %>
+        <% end %>
       </div>
       <div class='comment-form'>
-        <%= form_with model: @comment, url: car_comments_path, local: true do |f| %>
-          <%= f.text_area class:'comment-text-form'%>
+        <%= form_with model: [@car, @comment], local: true do |f| %>
+          <%= f.text_field class:'comment-text-form'%>
+          <%= f.submit 'コメントする' %>
         <% end %>
       </div>
     </div>
