@@ -17,7 +17,7 @@
         </div>
         <div class='car-edit-delete-btn'>
           <% if current_user == @car.user %>
-            <%= link_to '編集', edit_car_path, class:'car-edit-btn' %>
+            <%= link_to '編集', edit_car_path(@car), class:'car-edit-btn' %>
             <%= link_to '削除', car_path(@car), method: :delete, class:'car-delete-btn' %>
           <% end %>
         </div>
@@ -40,15 +40,19 @@
     コメント欄
       <div class='comment-area'>
         <% @car.comments.each do |comment| %>
-          <%= @comment.user.nickname %>：<%= comment.text %>
+          <div class='comment'>
+            <b><%=link_to comment.user.nickname, "#" %></b>：<%= comment.text %>
+          </div>
         <% end %>
       </div>
-      <div class='comment-form'>
-        <%= form_with model: [@car, @comment], local: true do |f| %>
-          <%= f.text_field class:'comment-text-form'%>
-          <%= f.submit 'コメントする' %>
-        <% end %>
-      </div>
+      <% if user_signed_in?%>
+        <div class='comment-form'>
+          <%= form_with model: [@car, @comment], local: true do |f| %>
+            <%= f.text_field :text, class:'comment-text-form'%>
+            <%= f.submit 'コメントする' ,class:'comment-send-form'%>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
