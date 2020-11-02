@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'cars#index'
   resources :cars do
     resources :comments, only: :create
+    collection do
+      get 'sarch'
+    end
   end
 
   resources :users, only: :show
