@@ -12,10 +12,10 @@ class Car < ApplicationRecord
 
   def self.search(search)
     if search != nil
-      Car.where('text LIKE(?)', "%#{search}%")
+      Car.where('title LIKE(?) or text LIKE(?)' , "%#{search}%",  "%#{search}%")
     else
       Car.all
     end
   end
-  
+
 end

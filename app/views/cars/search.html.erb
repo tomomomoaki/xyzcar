@@ -1,0 +1,27 @@
+<%= render "shared/header" %>
+
+<div class='main-index-window'>
+  <div class='side-header'>
+    <div class ='car-sarch-box'>
+      <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
+        <%= f.text_field :keyword, placeholder:'キーワードで探す' %>
+        <%= f.submit '検索' %>
+      <% end %>
+    </div>
+    <%= link_to  new_car_path do %>
+    <div class='new-review-btn'>
+      <span class='new-review-btn-text'>レビューを投稿する</span>
+    </div>
+    <% end %>
+  </div>
+  <div class='main-review'>
+    <div class='review-header'>
+      投稿一覧
+    </div>
+    <div class='reviews'>
+      <%= render partial:'car', collection: @cars %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
