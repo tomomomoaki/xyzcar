@@ -13,7 +13,7 @@
       </div>
       <div class='car-user-name-box'>
         <div class='car-user-name'>
-          投稿者：<%=link_to @car.user.nickname %>
+          投稿者：<%=link_to @car.user.nickname, user_path(@car.user) %>
         </div>
         <div class='car-edit-delete-btn'>
           <% if current_user == @car.user %>
@@ -41,7 +41,7 @@
       <div class='comment-area'>
         <% @car.comments.each do |comment| %>
           <div class='comment'>
-            <b><%=link_to comment.user.nickname, "#" %></b>：<%= comment.text %>
+            <b><%=link_to comment.user.nickname, user_path(@car.user) %></b>：<%= comment.text %>
           </div>
         <% end %>
       </div>
