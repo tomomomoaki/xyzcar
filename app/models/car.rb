@@ -9,4 +9,13 @@ class Car < ApplicationRecord
   has_many :tags, through: :car_tags
   has_many :comments
   mount_uploader :image, ImagesUploader
+
+  def self.search(search)
+    if search != nil
+      Car.where('text LIKE(?)', "%#{search}%")
+    else
+      Car.all
+    end
+  end
+  
 end

@@ -3,7 +3,7 @@
 <div class='main-index-window'>
   <div class='side-header'>
     <div class ='car-sarch-box'>
-      <%= form_with url: sarch_cars_path, method: :get, local: true do |f|%>
+      <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
         <%= f.text_field :keyword, placeholder:'キーワードで探す' %>
         <%= f.submit '検索' %>
       <% end %>
