@@ -47,6 +47,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def search
+    @cars = Car.search(params[:keyword])
+  end
+
   private
 
   def car_params
