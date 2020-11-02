@@ -1,13 +1,19 @@
 .main-index-window{
   height: 100%;
   width: 100%;
-  display: flex;
 }
 
-.side-bar{
-  height: 100vh;
+.side-header{
+  height: 10vh;
+  width: 100vw;
   background-color: cadetblue;
-  width: 20vw;
+}
+
+.new-review-btn{
+  width: 200px;
+  padding: 5px;
+  border:solid 1px black;
+  background-color: burlywood;
 }
 
 .new-review-btn-text{
@@ -17,13 +23,7 @@
 
 .main-review{
   background-color: darkcyan;
-  width: 80vw;
-  height: 100vh;
+  width: 100vw;
+  height: 100%;
 }
 
-.new-review-btn{
-  margin: 20px;
-  padding: 10px;
-  border:solid 1px black;
-  background-color: burlywood;
-}

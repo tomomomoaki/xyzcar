@@ -7,7 +7,7 @@ a {
   height:200px;
   width: calc (80vw - 20px);
   padding: 10px;
-  margin: 20px 20px 20px 20px;
+  margin: 0 20px 20px;
   display: flex;
 }
 
