@@ -48,7 +48,11 @@ class CarsController < ApplicationController
   end
 
   def search
-    @cars = Car.search(params[:keyword])
+    if (params[:keyword])[0] == '#'
+      @cars = Tag.search(params[:keyword]).order('created_at DESC')
+    else
+      @cars = Car.search(params[:keyword]).order('created_at DESC')
+    end
   end
 
   private

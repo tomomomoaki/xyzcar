@@ -28,9 +28,8 @@
       <%= image_tag 'img_noimage.png' unless @car.image? %>
     </div>
     <div class='car-tag-box'>
-      タグ：
       <% @car.tags.each do |tag| %>
-        <span class='car-tag-name' >#<%= tag.name %></span>
+        <span class='car-tag-name' ><%=link_to tag.name, search_cars_path(keyword: tag.name) %></span>
       <% end %>
     </div>
     <div class='car-text-box'>
