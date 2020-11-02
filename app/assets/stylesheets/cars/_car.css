@@ -5,9 +5,9 @@ a {
 .list{
   background-color: #f8f8f8;
   height:200px;
-  width: calc (80vw - 20px);
+  width: 75vw;
   padding: 10px;
-  margin: 0 20px 20px;
+  margin: 20px auto 0;
   display: flex;
 }
 

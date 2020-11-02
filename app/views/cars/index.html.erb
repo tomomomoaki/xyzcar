@@ -2,6 +2,9 @@
 
 <div class='main-index-window'>
   <div class='side-header'>
+    <div class ='car-sarch-box'>
+      <%= form_with %>
+    </div>
     <%= link_to  new_car_path do %>
     <div class='new-review-btn'>
       <span class='new-review-btn-text'>レビューを投稿する</span>
@@ -9,7 +12,12 @@
     <% end %>
   </div>
   <div class='main-review'>
-    <%= render partial:'car', collection: @cars %>
+    <div class='review-header'>
+      投稿一覧
+    </div>
+    <div class='reviews'>
+      <%= render partial:'car', collection: @cars %>
+    </div>
   </div>
 </div>
 
