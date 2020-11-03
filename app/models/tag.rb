@@ -4,4 +4,13 @@ class Tag < ApplicationRecord
   has_many :cars, through: :car_tags
 
   validates :name, uniqueness: true
+
+  def self.search(search)
+    if search != '#'
+      tag = Tag.where(name: search)
+      tag[0].cars
+    else
+      Car.all.includes(:user, :tags)
+    end
+  end
 end

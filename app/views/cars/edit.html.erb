@@ -46,10 +46,10 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">タグ付け（#抜きで、タグごとに「,」で区切ってください）</label>
+      <label class="form-text">タグ付け（2つ以上タグ付けする時は、タグごとに「,」で区切ってください）</label>
     </div>
     <div class='tag-form'>
-      <%= f.text_field :name, placeholder:'例）かっこいい,すごい', class:"car-tag", id:'tag-form' %>
+      <%= f.text_field :name, placeholder:'例）#かっこいい,#すごい', class:"car-tag", id:'tag-form' %>
     </div>
   </div>
   <div class="form-group">

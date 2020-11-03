@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.includes(:user).order('created_at DESC')
+    @cars = Car.all.includes(:user, :tags).order('created_at DESC')
   end
 
   def new
@@ -44,6 +44,14 @@ class CarsController < ApplicationController
   def destroy
     if @car.destroy
       redirect_to root_path
+    end
+  end
+
+  def search
+    if (params[:keyword])[0] == '#'
+      @cars = Tag.search(params[:keyword]).order('created_at DESC')
+    else
+      @cars = Car.search(params[:keyword]).order('created_at DESC')
     end
   end
 
