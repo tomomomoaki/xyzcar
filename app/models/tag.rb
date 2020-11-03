@@ -7,10 +7,10 @@ class Tag < ApplicationRecord
 
   def self.search(search)
     if search != '#'
-      tag = Tag.where('name LIKE(?)',  "%#{search}%")
+      tag = Tag.where(name: search)
       tag[0].cars
     else
-      Tag.all
+      Car.all.includes(:user, :tags)
     end
   end
 end

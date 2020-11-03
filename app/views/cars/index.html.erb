@@ -2,12 +2,14 @@
 
 <div class='main-index-window'>
   <div class='side-header'>
-    <div class ='car-sarch-box'>
-      <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
-        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す' %>
+    <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
+      <div class ='car-sarch-box'>
+        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', id:'keyword-search-form' %>
         <%= f.submit '検索' %>
-      <% end %>
-    </div>
+      </div>
+      <div id='search-result'>
+      </div>
+    <% end %>
     <%= link_to  new_car_path do %>
     <div class='new-review-btn'>
       <span class='new-review-btn-text'>レビューを投稿する</span>

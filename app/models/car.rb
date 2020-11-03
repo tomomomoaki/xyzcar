@@ -14,7 +14,7 @@ class Car < ApplicationRecord
     if search != nil
       Car.where('title LIKE(?) or text LIKE(?)' , "%#{search}%",  "%#{search}%")
     else
-      Car.all
+      Car.all.includes(:user, :tags)
     end
   end
 
