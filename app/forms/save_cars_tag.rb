@@ -1,7 +1,7 @@
 class SaveCarsTag
 
   include ActiveModel::Model
-  attr_accessor :title, :image, :text, :maker_id, :car_name, :body_type_id, :name, :user_id
+  attr_accessor :title, :images, :text, :maker_id, :car_name, :body_type_id, :name, :user_id
 
   with_options presence: true do
     validates :title, length:{maximum: 40}
@@ -20,7 +20,7 @@ class SaveCarsTag
   def save(tag_list)
 
     ActiveRecord::Base.transaction do
-      @car.update(title: title, image: image, text: text, maker_id: maker_id, car_name: car_name, body_type_id: body_type_id, user_id: user_id)
+      @car.update(title: title, images: images, text: text, maker_id: maker_id, car_name: car_name, body_type_id: body_type_id, user_id: user_id)
 
       #// @carに紐付くタグがあれば、car_tagsテーブルの紐付くレコードを全て消去する
       @car.car_tags.each do |tag|
@@ -49,7 +49,7 @@ class SaveCarsTag
   def default_attributes
     {
       title: car.title,
-      image: car.image,
+      images: car.images,
       text: car.text,
       maker_id: car.maker_id,
       car_name: car.car_name,

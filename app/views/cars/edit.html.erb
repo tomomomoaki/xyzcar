@@ -16,9 +16,9 @@
     <div class='form-text-wrap'>
       <label class="form-text">画像</label>
     </div>
-    <%= f.file_field :image, value: @car.image, id:"car-image" %>
-    <%= f.hidden_field :image_cache %>
+    <%= f.file_field :images, value: @car.images, multiple: true, id:"car-image" %>
   </div>
+  <div id='image-list'></div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">本文</label>
