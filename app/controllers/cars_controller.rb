@@ -60,7 +60,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-  params.require(:car).permit(:title, {image: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
+  params.require(:car).permit(:title, {images: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
   end
 
   def find_car

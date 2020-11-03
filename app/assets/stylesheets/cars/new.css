@@ -32,10 +32,43 @@
   width: 1000px;
 }
 
-.preview-car-image{
-  width: 300px;
+.select-image-box{
   height: 200px;
+  width: 1000px;
+  background-color: #f1f1f1;
+  display: flex;
+  overflow: auto;
+}
+
+.image-list{
+  height: 100%;
+  display: flex;
+}
+
+.image-element{
+  height:180px;
+  width: 270px;
+  padding: 9px 0;
+  border: solid 1px black;
+}
+
+.preview-car-image{
+  height: 180px;
+  width: 270px;
   object-fit: cover;
+}
+
+.select-file-box{
+  height: 100%;
+  width: 100%;
+}
+
+.select-file{
+  min-width: 288px;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  border: solid 1px black;
+  background-color: grey;
 }
 
 .car-text{
