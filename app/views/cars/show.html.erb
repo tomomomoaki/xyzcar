@@ -24,8 +24,17 @@
       </div>
     </div>
     <div class='car-image-box'>
-      <%= image_tag @car.image.url if @car.image? %>
-      <%= image_tag 'img_noimage.png' unless @car.image? %>
+      <div class='main-image-box' id='main-image-box'>
+        <%= image_tag @car.images[0].url, class:'main-image', id:'main-image' %>
+        <%= image_tag 'img_noimage.png' unless @car.images? %>
+      </div>
+      <div class='sub-image-box'>
+        <% @car.images.each_with_index do |image, i| %>
+          <div class='sub-images-box'>
+            <%= image_tag image.url, class:'sub-images', id:"sub-images-#{i}", onclick: 'pickupImage(this)' %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class='car-tag-box'>
       <% @car.tags.each do |tag| %>

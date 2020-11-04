@@ -8,7 +8,9 @@ class Car < ApplicationRecord
   has_many :car_tags, dependent: :destroy
   has_many :tags, through: :car_tags
   has_many :comments
-  mount_uploader :image, ImagesUploader
+  
+  mount_uploaders :images, ImagesUploader
+  serialize :images, JSON
 
   def self.search(search)
     if search != nil
