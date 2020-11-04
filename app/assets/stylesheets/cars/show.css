@@ -63,8 +63,40 @@
   width: 50vw;
   margin: auto;
   padding: 10px 30px;
+}
+
+.main-image-box{
+  height: 400px;
+  width: 100%;
+}
+
+.main-image{
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sub-image-box{
+  height: 94px;
+  width: calc(100% - 4px);
+  overflow: auto;
+  border: solid 2px black;
   display: flex;
-  justify-content: center;
+}
+
+.sub-images-box{
+  height: 90px;
+  width: 130px;
+}
+
+.sub-images{
+  height: 80px;
+  width: 120px;
+  margin: 5px;
+  object-fit: cover;
+  border: solid 1px gray;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .car-tag-box{
