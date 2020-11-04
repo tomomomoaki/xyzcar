@@ -4,24 +4,44 @@
 }
 
 .side-header{
-  height: 60px;
+  height: 100%;
   width: 100vw;
   background-color: cadetblue;
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 
 .car-sarch-box{
-  width: 400px;
-  height: 30px;
-  padding: 5px;
+  width: 100%;
+  height: 100%;
+  margin-top: 16px;
+}
+
+.keyword-search-form{
+  width: 300px;
+}
+
+.search-result{
+  height: 100%;
+  width: 300px;
+  padding-bottom: 10px;
+}
+
+.child{
+  height: 20px;
+  width: 302px;
+  padding-top: 4px 0 auto;
+  border-bottom: solid 1px blue;
+  background-color: #ffffff;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .new-review-btn{
   width: 200px;
   height: 30px;
   padding: 5px;
+  margin: 10px;
   border:solid 1px black;
   background-color: burlywood;
   text-align: center;

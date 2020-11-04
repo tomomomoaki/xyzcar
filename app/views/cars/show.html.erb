@@ -25,7 +25,7 @@
     </div>
     <div class='car-image-box'>
       <div class='main-image-box' id='main-image-box'>
-        <%= image_tag @car.images[0].url, class:'main-image', id:'main-image' %>
+        <%= image_tag @car.images[0].url, class:'main-image', id:'main-image' if @car.images? %>
         <%= image_tag 'img_noimage.png' unless @car.images? %>
       </div>
       <div class='sub-image-box'>

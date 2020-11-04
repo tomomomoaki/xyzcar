@@ -47,10 +47,14 @@ class CarsController < ApplicationController
     end
   end
 
+  def search_tag
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE(?)', "%#{(params[:keyword])}%"])
+    render json:{ keyword: tag }
+  end
+
   def search
     if (params[:keyword])[0] == '#'
-      #tag = Tag.where(params[:keyword])
-      #render json:{ keyword: tag }
       @cars = Tag.search(params[:keyword]).order('created_at DESC')
     else
       @cars = Car.search(params[:keyword]).order('created_at DESC')
