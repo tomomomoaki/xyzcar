@@ -22,8 +22,9 @@
       </div>
       <div class='select-file-box' id='select-file-box'>
         <div class='select-file' id='select-file'>
-          <%= f.file_field :images, multiple: true, id:"car-image", style:"display: none;" %>
+          <div class='select-file-text'>画像を追加</div>
         </div>
+        <%= f.file_field :images, multiple: true, id:"car-image-0", style:"display: none;" %>
       </div>
     </div>
   </div>
