@@ -21,7 +21,6 @@ function preview () {
     
     const imageElement = document.createElement('div');
     imageElement.setAttribute('class', 'image-element');
-    // let imageElementNum = document.querySelectorAll('.image-element').length;
     imageElement.setAttribute('id', `image-element-${Num}`);
 
     const blobImage = document.createElement('img');
@@ -54,7 +53,7 @@ function preview () {
     imageElement.appendChild(deleteBtn);
     imageElement.appendChild(blobImage);
     ImageList.appendChild(imageElement);
-    if (document.querySelectorAll('.image-element').length <= 11) {
+    if (document.querySelectorAll('.image-element').length <= 9) {
       selectFileBox.appendChild(inputHTML);
       selectHTML.appendChild(selectHTMLText);
       selectFileBox.appendChild(selectHTML);
@@ -85,6 +84,6 @@ function preview () {
   });
 }
 
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
-  window.addEventListener('load',preview);
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ ) || document.URL.match( /cars/ )) {
+  document.addEventListener('DOMContentLoaded',preview);
 }

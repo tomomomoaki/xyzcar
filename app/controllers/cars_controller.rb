@@ -16,7 +16,7 @@ class CarsController < ApplicationController
     tag_list = params[:car][:name].split(",")
     if @form.valid?
       @form.save(tag_list)
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :new
     end
