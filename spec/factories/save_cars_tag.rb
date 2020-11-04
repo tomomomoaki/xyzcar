@@ -1,14 +1,12 @@
 FactoryBot.define do
-  factory :car do
+  factory :save_cars_tag do
     title              {'ランドクルーザーは大きくて、かっこいい'}
+    images             {["1.png","2.png"]}
     text               {Faker::Lorem.sentence}
     maker_id           {rand(1..44)}
     car_name           {'ランドクルーザー'}
     body_type_id       {rand(1..9)}
-    association :user
+    name               {"#かっこいい,#TOYOTA"}
 
-    after(:build) do |item|
-      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
-    end
   end
 end

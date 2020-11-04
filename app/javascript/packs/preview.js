@@ -54,10 +54,11 @@ function preview () {
     imageElement.appendChild(deleteBtn);
     imageElement.appendChild(blobImage);
     ImageList.appendChild(imageElement);
-    selectFileBox.appendChild(inputHTML);
-    selectHTML.appendChild(selectHTMLText);
-    selectFileBox.appendChild(selectHTML);
-
+    if (document.querySelectorAll('.image-element').length <= 11) {
+      selectFileBox.appendChild(inputHTML);
+      selectHTML.appendChild(selectHTMLText);
+      selectFileBox.appendChild(selectHTML);
+    }
     selectHTML.addEventListener('click', () => {
       inputHTML.click();
     });

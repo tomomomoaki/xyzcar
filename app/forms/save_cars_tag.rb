@@ -4,9 +4,10 @@ class SaveCarsTag
   attr_accessor :title, :images, :text, :maker_id, :car_name, :body_type_id, :name, :user_id
 
   with_options presence: true do
-    validates :title, length:{maximum: 40}
+    validates :title, length:{maximum: 50}
     validates :text
   end
+  validates :images, length:{maximum: 10}
 
   #// carがすでに保存されているものか、新規のものかで、PUTとPATCHを分ける
   delegate :persisted?, to: :car
