@@ -61,8 +61,10 @@ class CarsController < ApplicationController
     end
   end
 
-  def squeeze
-    
+  def type
+    redirect_to root_path if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
+    @cars = Car.type(params).order('created_at DESC')
+    render "index"
   end
 
   private
