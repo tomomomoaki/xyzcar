@@ -61,6 +61,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def squeeze
+    
+  end
+
   private
 
   def car_params

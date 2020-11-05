@@ -68,26 +68,18 @@
   width: 100%;
   height: 50px;
   padding: 25px 0;
-}
-
-.select-down-btn{
-  width: 80%;
-  padding: 10px 0;
-  margin: 0 auto;
-  border: solid 2px blue;
-  background-color: honeydew;
-  text-align: center;
-}
-
-.car-name-down-form{
-  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.down-form-text{
+.select-down-box{
+  height: 30px;
   width: 80%;
+}
+
+.narrow-submit-btn{
+  height: 30px;
+  width: 30%;
 }
 
 .main-review{

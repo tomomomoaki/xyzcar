@@ -18,18 +18,20 @@
   </div>
   <div class='lower-window'>
     <div class='side-bar'>
+      <%= form_with mothod: :get, class:'car-name-down-form', local: true do |f| %>
       <div class='narrow-down'>
-        <div class='select-down-btn'>メーカーから探す</div>
+        <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
       </div>
       <div class='narrow-down'>
-        <div class='select-down-btn'>ボディタイプから探す</div>
+        <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
       </div>
       <div class='narrow-down'>
-        <%= form_with mothod: :get, class:'car-name-down-form', local: true do |f| %>
-          <%= f.text_field :car_name, placeholder:'車名から探す', class:'down-form-text' %>
-          <%= f.submit '探す'%>
-        <% end %>
+        <%= f.text_field :car_name, placeholder:'車名から探す', class:"select-down-box" %>
       </div>
+      <div class='narrow-down'>
+        <%= f.submit '絞り込む', class:"narrow-submit-btn"%>
+      </div>
+      <% end %>
     </div>
     <div class='main-review'>
       <div class='review-header'>

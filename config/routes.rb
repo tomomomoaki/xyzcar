@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'search_tag'
       get 'search'
+      get 'squeeze'
     end
   end
 
