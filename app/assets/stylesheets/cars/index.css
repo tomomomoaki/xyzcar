@@ -52,9 +52,47 @@
   font-size: 20px;
 }
 
+.lower-window{
+  height: 3700px;
+  width: 100vw;
+  display: flex;
+}
+
+.side-bar{
+  height: 100%;
+  width: 18vw;
+  background-color: gray;
+}
+
+.narrow-down{
+  width: 100%;
+  height: 50px;
+  padding: 25px 0;
+}
+
+.select-down-btn{
+  width: 80%;
+  padding: 10px 0;
+  margin: 0 auto;
+  border: solid 2px blue;
+  background-color: honeydew;
+  text-align: center;
+}
+
+.car-name-down-form{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.down-form-text{
+  width: 80%;
+}
+
 .main-review{
   background-color: darkcyan;
-  width: 100vw;
+  width: 82vw;
   min-height: 100vh;
   height: auto;
 }
@@ -65,7 +103,7 @@
 }
 
 .reviews{
-  width: 90vw;
+  width: 80vw;
   height: 100%;
   margin: auto;
 }

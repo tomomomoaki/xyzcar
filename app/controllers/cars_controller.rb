@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.includes(:user, :tags).order('created_at DESC')
+    @cars = Car.all.limit(15).includes(:user, :tags).order('created_at DESC')
   end
 
   def new

@@ -16,12 +16,28 @@
     </div>
     <% end %>
   </div>
-  <div class='main-review'>
-    <div class='review-header'>
-      投稿一覧
+  <div class='lower-window'>
+    <div class='side-bar'>
+      <div class='narrow-down'>
+        <div class='select-down-btn'>メーカーから探す</div>
+      </div>
+      <div class='narrow-down'>
+        <div class='select-down-btn'>ボディタイプから探す</div>
+      </div>
+      <div class='narrow-down'>
+        <%= form_with mothod: :get, class:'car-name-down-form', local: true do |f| %>
+          <%= f.text_field :car_name, placeholder:'車名から探す', class:'down-form-text' %>
+          <%= f.submit '探す'%>
+        <% end %>
+      </div>
     </div>
-    <div class='reviews'>
-      <%= render partial:'car', collection: @cars %>
+    <div class='main-review'>
+      <div class='review-header'>
+        最新投稿一覧
+      </div>
+      <div class='reviews'>
+        <%= render partial:'car', collection: @cars %>
+      </div>
     </div>
   </div>
 </div>
