@@ -16,12 +16,19 @@
     </div>
     <% end %>
   </div>
-  <div class='main-review'>
-    <div class='review-header'>
-      投稿一覧
-    </div>
-    <div class='reviews'>
-      <%= render partial:'car', collection: @cars %>
+  <div class='lower-window'>
+    
+    <%= render "shared/sidebar" %>
+    
+    <div class='main-review'>
+      <div class='review-header'>
+        最新投稿一覧
+      </div>
+      <div class='reviews'>
+        <%= render partial:'car', collection: @cars %>
+      </div>
+      <div class='review-footer'>
+      </div>
     </div>
   </div>
 </div>

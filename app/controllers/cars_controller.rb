@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.includes(:user, :tags).order('created_at DESC')
+    @cars = Car.all.limit(15).includes(:user, :tags).order('created_at DESC')
   end
 
   def new
@@ -58,6 +58,15 @@ class CarsController < ApplicationController
       @cars = Tag.search(params[:keyword]).order('created_at DESC')
     else
       @cars = Car.search(params[:keyword]).order('created_at DESC')
+    end
+  end
+
+  def type
+    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
+      redirect_to root_path
+    else
+      @cars = Car.type(params).order('created_at DESC')
+      render "index"
     end
   end
 

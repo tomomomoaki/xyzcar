@@ -16,12 +16,19 @@
     </div>
     <% end %>
   </div>
-  <div class='main-review'>
-    <div class='review-header'>
-      <span class='keyword'><%= params[:keyword] %></span>  の検索結果
-    </div>
-    <div class='reviews'>
-      <%= render partial:'car', collection: @cars %>
+  <div class='lower-window'>
+    
+    <%= render "shared/sidebar" %>
+
+    <div class='main-review'>
+      <div class='review-header'>
+        <span class='keyword'><%= params[:keyword] %></span>  の検索結果
+      </div>
+      <div class='reviews'>
+        <%= render partial:'car', collection: @cars %>
+      </div>
+      <div class='review-footer'>
+      </div>
     </div>
   </div>
 </div>

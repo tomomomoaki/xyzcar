@@ -19,5 +19,33 @@ class Car < ApplicationRecord
       Car.all.includes(:user, :tags)
     end
   end
+  
+  def self.type(params)
+    if (params[:maker_id].to_i >= 2) && (params[:body_type_id].to_i >= 2) && (params[:car_name] != "")
+      overlap_cars = Car.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id])
+      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+
+    elsif (params[:maker_id].to_i >= 2) && (params[:body_type_id].to_i >= 2)
+      overlap_cars = Car.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id])
+
+    elsif (params[:maker_id].to_i >= 2) && (params[:car_name] != "")
+      overlap_cars = Car.where(maker_id: params[:maker_id])
+      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+
+    elsif (params[:body_type_id].to_i >= 2) && (params[:car_name] != "")
+      overlap_cars = Car.where(body_type_id: params[:body_type_id])
+      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+
+    elsif params[:maker_id].to_i >= 2
+      overlap_cars = Car.where(maker_id: params[:maker_id])
+
+    elsif params[:body_type_id].to_i >= 2
+      overlap_cars = Car.where(body_type_id: params[:body_type_id])
+
+    elsif params[:car_name] != ""
+      overlap_cars = Car.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+    end
+    return overlap_cars
+  end
 
 end
