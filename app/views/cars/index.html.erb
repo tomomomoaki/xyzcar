@@ -17,28 +17,17 @@
     <% end %>
   </div>
   <div class='lower-window'>
-    <div class='side-bar'>
-      <%= form_with url: type_cars_path, method: :get, class:'car-name-down-form', local: true do |f| %>
-        <div class='narrow-down'>
-          <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
-        </div>
-        <div class='narrow-down'>
-          <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
-        </div>
-        <div class='narrow-down'>
-          <%= f.text_field :car_name, placeholder:'車名から探す', class:"select-down-box" %>
-        </div>
-        <div class='narrow-down'>
-          <%= f.submit '絞り込む', class:"narrow-submit-btn"%>
-        </div>
-      <% end %>
-    </div>
+    
+    <%= render "shared/sidebar" %>
+    
     <div class='main-review'>
       <div class='review-header'>
         最新投稿一覧
       </div>
       <div class='reviews'>
         <%= render partial:'car', collection: @cars %>
+      </div>
+      <div class='review-footer'>
       </div>
     </div>
   </div>

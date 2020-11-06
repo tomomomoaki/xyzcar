@@ -62,9 +62,12 @@ class CarsController < ApplicationController
   end
 
   def type
-    redirect_to root_path if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
-    @cars = Car.type(params).order('created_at DESC')
-    render "index"
+    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
+      redirect_to root_path
+    else
+      @cars = Car.type(params).order('created_at DESC')
+      render "index"
+    end
   end
 
   private
