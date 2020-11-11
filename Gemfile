@@ -65,3 +65,5 @@ gem 'carrierwave'
 
 gem 'pry-rails'
 
+gem 'mechanize'
+
