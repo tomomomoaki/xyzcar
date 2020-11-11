@@ -4,7 +4,8 @@ class CarsController < ApplicationController
   before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.limit(15).includes(:user, :tags).order('created_at DESC')
+    @cars = Car.all.limit(14).includes(:user, :tags).order('created_at DESC')
+    @elements = Scraping.get_url
   end
 
   def new

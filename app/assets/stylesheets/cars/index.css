@@ -72,6 +72,18 @@
   font-size: 30px;
 }
 
+.scraping-box{
+  height: 150;
+  width: 75vw;
+  padding: 10px;
+  margin: 20px auto;
+  background-color: #ffffff;
+}
+
+.scraping-title{
+  text-align: center;
+}
+
 .reviews{
   width: 80vw;
   height: 100%;
