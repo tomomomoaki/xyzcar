@@ -67,6 +67,7 @@ class CarsController < ApplicationController
       redirect_to root_path
     else
       @cars = Car.type(params).order('created_at DESC')
+      @elements = Scraping.get_url
       render "index"
     end
   end

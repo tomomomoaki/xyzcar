@@ -1,53 +1,78 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">ニックネーム</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) 太郎", maxlength:"15" %>
+<header class='header'>
+  <div class='title-box'>
+    <%= link_to 'car_car', root_path %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class='user-box'>
+    <ul class='user-list'>
+      <li><%=link_to '戻る', root_path, class:'header-user-btn'%></li>
+      <li><%=link_to 'ログイン', new_user_session_path, class:'header-user-btn'%></li>
+    </ul>
   </div>
+</header>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+<div class='main-signup-window'>
+  <div class='main-signup-page'>
+
+    <div class='signup-title'>新規ユーザー登録</div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">ニックネーム</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) 太郎", maxlength:"15" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">Email</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.email_field :email, class:"input-default", id:"email", autofocus: true, placeholder:"例) car-car@gmail.com", autocomplete: "email" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">Password</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上で設定してください", autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">Password（確認用）</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password_confirmation, class:"input-default", id:"password", autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">好きな車</label>
+        </div>
+        <%= f.text_area :favorite_car, class:"input-default", id:"favorite_car", placeholder:"例) ランドクルーザー", maxlength:"40" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">自己紹介</label>
+        </div>
+        <%= f.text_area :introduction, class:"input-default-intro", id:"introduction" ,placeholder:"例）こんにちは、たくさん投稿していきたいと思います。\nよろしくお願いします。"%>
+      </div>
+
+      
+
+      <div class="actions">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">好きな車</label>
-    </div>
-    <%= f.text_area :favorite_car, class:"input-default", id:"favorite_car", placeholder:"例) ランドクルーザー", maxlength:"40" %>
-  </div>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">自己紹介</label>
-    </div>
-    <%= f.text_area :introduction, class:"input-default", id:"introduction" %>
-  </div>
-
-  
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= render "shared/footer" %>

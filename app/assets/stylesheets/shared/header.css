@@ -34,7 +34,7 @@
   align-items: center;
 }
 
-.user-nickname{
+.header-user-btn{
   color: #ffffff;
   text-decoration: none;
   margin: 20px;
@@ -42,26 +42,3 @@
   border: solid 1px #ffffff;
 }
 
-.logout{
-  color: #ffffff;
-  text-decoration: none;
-  margin: 20px;
-  padding: 10px;
-  border: solid 1px #ffffff;
-}
-
-.login{
-  color: #ffffff;
-  text-decoration: none;
-  margin: 20px;
-  padding: 10px;
-  border: solid 1px #ffffff;
-}
-
-.new-user{
-  color: #ffffff;
-  text-decoration: none;
-  margin: 20px;
-  padding: 10px;
-  border: solid 1px #ffffff;
-}

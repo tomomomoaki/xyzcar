@@ -16,7 +16,7 @@
       投稿数：<%= @user.cars.length %>
     </div>
     <div class='user-show-introduction'>
-      <%= @user.introduction %>
+      <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
     </div>
   </div>
   <div class='exsample-car'>
