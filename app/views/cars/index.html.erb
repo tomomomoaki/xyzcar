@@ -3,7 +3,7 @@
 <div class='main-index-window'>
   <div class='side-header'>
     <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
-      <div class ='car-sarch-box'>
+      <div class ='car-search-box'>
         <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', class:'keyword-search-form', id:'keyword-search-form' %>
         <%= f.submit '検索' %>
         <div class='search-result' id='search-result'>
