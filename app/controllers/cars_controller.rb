@@ -86,3 +86,4 @@ class CarsController < ApplicationController
     redirect_to root_path unless current_user == @car.user
   end
 end
+
