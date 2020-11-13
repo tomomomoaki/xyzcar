@@ -28,6 +28,7 @@
         <%= image_tag @car.images[0].url, class:'main-image', id:'main-image' if @car.images? %>
         <%= image_tag 'img_noimage.png' unless @car.images? %>
       </div>
+      <% if @car.images? %>
       <div class='sub-image-box'>
         <% @car.images.each_with_index do |image, i| %>
           <div class='sub-images-box'>
@@ -35,6 +36,7 @@
           </div>
         <% end %>
       </div>
+      <% end %>
     </div>
     <div class='car-tag-box'>
       <% @car.tags.each do |tag| %>
