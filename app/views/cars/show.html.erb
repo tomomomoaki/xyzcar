@@ -42,7 +42,7 @@
       <% end %>
     </div>
     <div class='car-text-box'>
-      <%= safe_join(@car.text.split("\n"), tag(:br)) %>
+      <%= safe_join(@car.text.split("\r\n"), tag.br) %>
     </div>
     <div class='car-comment-box'>
     コメント欄
