@@ -60,9 +60,9 @@ car-carでは、自動車に乗っていない人が、実際に自動車に乗�
 | ------------------ | ---------- | ----------------------------- |
 | title              | string     | null: false                   |
 | text               | text       | null: false                   |
-| maker              | string     | null: false                   |
+| maker_id           | string     | null: false                   |
 | car_name           | string     | null: false                   |
-| body_type          | string     | null: false                   |
+| body_type_id       | string     | null: false                   |
 | user               | references | null: false, foreign_key: true|
 
 ### Association

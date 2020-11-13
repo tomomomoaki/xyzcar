@@ -4,10 +4,10 @@
   <div class='side-header'>
     <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
       <div class ='car-sarch-box'>
-        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', id:'keyword-search-form' %>
+        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', class:'keyword-search-form', id:'keyword-search-form' %>
         <%= f.submit '検索' %>
-      </div>
-      <div id='search-result'>
+        <div class='search-result' id='search-result'>
+        </div>
       </div>
     <% end %>
     <%= link_to  new_car_path do %>
@@ -16,12 +16,31 @@
     </div>
     <% end %>
   </div>
-  <div class='main-review'>
-    <div class='review-header'>
-      投稿一覧
-    </div>
-    <div class='reviews'>
-      <%= render partial:'car', collection: @cars %>
+  <div class='lower-window'>
+    
+    <%= render "shared/sidebar" %>
+    
+    <div class='main-review'>
+      <div class='scraping-box'>
+          <div class='scraping-title'>
+            ＜最新マイナーチェンジ情報＞
+          </div>
+          <div class='scraping-url'>
+            <ul>
+              <% @elements.slice(0,5).each do |element|%>
+                <li><%= link_to "・#{element}", element.href %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <div class='review-header'>
+        最新投稿一覧
+      </div>
+      <div class='reviews'>
+        <%= render partial:'car', collection: @cars %>
+      </div>
+      <div class='review-footer'>
+      </div>
     </div>
   </div>
 </div>

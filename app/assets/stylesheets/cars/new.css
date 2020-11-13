@@ -19,7 +19,7 @@
   font-size: 40px;
 }
 .form-group{
-  margin: 10px auto; 
+  margin: 15px auto; 
 }
 
 .indispensable{
@@ -30,6 +30,65 @@
   padding: 0 10px;
   font-size: 30px;
   width: 1000px;
+}
+
+.select-image-box{
+  height: 230px;
+  width: 1000px;
+  background-color: #f1f1f1;
+  display: flex;
+  overflow: auto;
+}
+
+.image-list{
+  height: 100%;
+  display: flex;
+}
+
+.image-element{
+  height: 210px;
+  width: 270px;
+  padding: 9px 0;
+  border: solid 1px black;
+}
+
+.delete-btn{
+  width: 32px;
+  margin: auto;
+  cursor: pointer;
+  cursor: hand;
+  color: blue;
+}
+
+.preview-car-image{
+  height: 180px;
+  width: 270px;
+  object-fit: cover;
+}
+
+.select-file-box{
+  height: 100%;
+  width: 100%;
+}
+
+.select-file{
+  min-width: 288px;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  border: solid 1px black;
+  background-color: grey;
+  cursor: pointer;
+  cursor: hand;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-file-text{
+  height: 26px;
+  width: 100px;
+  font-size: 20px;
 }
 
 .car-text{

@@ -1,0 +1,36 @@
+<div class='side-bar'>
+  <div class='side-bar-title'>
+    絞り込み検索
+  </div>
+  <%= form_with url: type_cars_path, method: :get, class:'car-name-down-form', local: true do |f| %>
+    <div class='narrow-down'>
+      <div class='narrow-down-element'>
+        <label class='narrow-down-label'>メーカーで絞りこむ</label>
+      </div>
+      <div class='narrow-down-element'>
+        <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <div class='narrow-down'>
+      <div class='narrow-down-element'>
+        <label class='narrow-down-label'>ボディタイプで絞りこむ</label>
+      </div>
+      <div class='narrow-down-element'>
+        <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-down-box", id:"item-category"}) %>
+      </div>
+    </div>
+    <div class='narrow-down'>
+      <div class='narrow-down-element'>
+        <label class='narrow-down-label'>車名で絞りこむ</label>
+      </div>
+      <div class='narrow-down-element'>
+        <%= f.text_field :car_name, placeholder:'例）プリウス', class:"select-down-box" %>
+      </div>
+    </div>
+    <div class='narrow-down'>
+      <div class='narrow-down-element'>
+        <%= f.submit '決定', class:"narrow-submit-btn"%>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -3,21 +3,29 @@
 <div class='main-new-form'>
   <div class='make-new-text'>レビュー編集</div>
 
-  <%#= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', model: f.object %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">タイトル</label>
+      <label class="form-text">タイトル（最大50字まで）</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :title, class:"car-title", id:"title", placeholder:"title", maxlength:"40" %>
+    <%= f.text_field :title, class:"car-title", id:"title", placeholder:"title", maxlength:"50" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">画像</label>
+      <label class="form-text">画像（最大10枚まで）</label>
     </div>
-    <%= f.file_field :image, value: @car.image, id:"car-image" %>
-    <%= f.hidden_field :image_cache %>
+    <div class="select-image-box">
+      <div class='image-list' id='image-list'>
+      </div>
+      <div class='select-file-box' id='select-file-box'>
+        <div class='select-file' id='select-file'>
+          <div class='select-file-text'>画像を追加</div>
+        </div>
+        <%= f.file_field :images, multiple: true, id:"car-image-0", style:"display: none;" %>
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>

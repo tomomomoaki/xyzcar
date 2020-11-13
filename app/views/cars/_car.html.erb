@@ -2,8 +2,8 @@
   <div class='review-contents'>
     <%= link_to car_path(car), class:'review-contents' do %>
     <div class='car-img-content'>
-      <%= image_tag car.image.url, class: "car-img" if car.image? %>
-      <%= image_tag 'img_noimage.png', class: "car-img" unless car.image? %>
+      <%= image_tag car.images[0].url, class: "car-img" if car.images? %>
+      <%= image_tag 'img_noimage.png', class: "car-img" unless car.images? %>
     </div>
     <% end %>
     <div class='car-info'>

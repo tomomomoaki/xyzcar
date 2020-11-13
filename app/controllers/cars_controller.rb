@@ -4,7 +4,8 @@ class CarsController < ApplicationController
   before_action :redirect_root, only:[:edit, :update, :destroy]
 
   def index
-    @cars = Car.all.includes(:user, :tags).order('created_at DESC')
+    @cars = Car.all.limit(14).includes(:user, :tags).order('created_at DESC')
+    @elements = Scraping.get_url
   end
 
   def new
@@ -16,7 +17,7 @@ class CarsController < ApplicationController
     tag_list = params[:car][:name].split(",")
     if @form.valid?
       @form.save(tag_list)
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :new
     end
@@ -47,6 +48,12 @@ class CarsController < ApplicationController
     end
   end
 
+  def search_tag
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE(?)', "%#{(params[:keyword])}%"])
+    render json:{ keyword: tag }
+  end
+
   def search
     if (params[:keyword])[0] == '#'
       @cars = Tag.search(params[:keyword]).order('created_at DESC')
@@ -55,10 +62,20 @@ class CarsController < ApplicationController
     end
   end
 
+  def type
+    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
+      redirect_to root_path
+    else
+      @cars = Car.type(params).order('created_at DESC')
+      @elements = Scraping.get_url
+      render "index"
+    end
+  end
+
   private
 
   def car_params
-    params.require(:car).permit(:title, :image, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
+  params.require(:car).permit(:title, {images: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
   end
 
   def find_car

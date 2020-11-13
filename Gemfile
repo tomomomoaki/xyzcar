@@ -65,4 +65,10 @@ gem 'carrierwave'
 
 gem 'pry-rails'
 
+gem 'mechanize'
+
+group :production do
+  gem 'rails_12factor'
+end
+
 
