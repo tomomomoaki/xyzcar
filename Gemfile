@@ -74,3 +74,7 @@ end
 gem "aws-sdk-s3", require: false
 
 gem 'fog-aws'
+
+gem 'kaminari'
+
+gem 'kaminari-bootstrap', '~> 3.0.1'

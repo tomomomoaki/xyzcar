@@ -19,19 +19,21 @@
 
 .keyword-search-form{
   width: 300px;
+  position: relative;
 }
 
 .search-result{
-  height: 100%;
   width: 300px;
   padding-bottom: 10px;
+  position: absolute;
 }
 
 .child{
-  height: 20px;
+  height: 30px;
   width: 302px;
-  padding-top: 4px 0 auto;
-  border-bottom: solid 1px blue;
+  padding: 4px 0 auto;
+  border: solid 1px gray;
+  font-size: 14px;
   background-color: #ffffff;
   cursor: pointer;
   cursor: hand;
@@ -70,6 +72,7 @@
 .review-header{
   text-align: center;
   font-size: 30px;
+  margin: 20px;
 }
 
 .scraping-box{
@@ -84,6 +87,15 @@
   text-align: center;
 }
 
+.non-review{
+  width: 100%;
+  height: 200px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .reviews{
   width: 80vw;
   height: 100%;
@@ -91,6 +103,18 @@
 }
 
 .review-footer{
-  height: 50px;
+  height: 70px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kaminari{
+  color: #ffffff;
+  font-size: 20px;
+  padding: 4px;
+  margin: 3px 5px;
+  background-color: #333333;
+  border: solid 1px #ffffff;
 }

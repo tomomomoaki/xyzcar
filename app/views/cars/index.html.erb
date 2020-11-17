@@ -36,10 +36,16 @@
       <div class='review-header'>
         最新投稿一覧
       </div>
-      <div class='reviews'>
-        <%= render partial:'car', collection: @cars %>
+      <div class='reviews' id='reviews'>
+        <% if @cars == [] %>
+          <div class='non-review'>該当するレビューはありませんでした。</div>
+        <% else %>
+          <%= render partial:'car', collection: @cars %>
+        <% end %>
       </div>
       <div class='review-footer'>
+         <%#= link_to_previous_page @cars, 'もっと見る', remote: true, class:'more-review', id:'more-review' %>
+         <%= paginate @cars %>
       </div>
     </div>
   </div>

@@ -35,7 +35,19 @@
   width: 80%;
 }
 
+.narrow-down-btn{
+  display: flex;
+  justify-content: space-around;
+}
+
 .narrow-submit-btn{
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  background-color: #ffffff;
   height: 30px;
   width: 30%;
+  margin: auto;
 }

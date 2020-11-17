@@ -12,6 +12,8 @@ class Car < ApplicationRecord
   mount_uploaders :images, ImagesUploader
   serialize :images, JSON
 
+  paginates_per 14
+
   def self.search(search)
     if search != nil
       Car.where('title LIKE(?) or text LIKE(?)' , "%#{search}%",  "%#{search}%")
@@ -20,30 +22,28 @@ class Car < ApplicationRecord
     end
   end
   
-  def self.type(params)
+
+  def self.type(params,cars)
     if (params[:maker_id].to_i >= 2) && (params[:body_type_id].to_i >= 2) && (params[:car_name] != "")
-      overlap_cars = Car.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id])
-      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+      overlap_cars = cars.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id]).where('car_name LIKE(?)', "%#{params[:car_name]}%")
 
     elsif (params[:maker_id].to_i >= 2) && (params[:body_type_id].to_i >= 2)
-      overlap_cars = Car.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id])
+      overlap_cars = cars.where(maker_id: params[:maker_id], body_type_id: params[:body_type_id])
 
     elsif (params[:maker_id].to_i >= 2) && (params[:car_name] != "")
-      overlap_cars = Car.where(maker_id: params[:maker_id])
-      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+      overlap_cars = cars.where(maker_id: params[:maker_id]).where('car_name LIKE(?)', "%#{params[:car_name]}%")
 
     elsif (params[:body_type_id].to_i >= 2) && (params[:car_name] != "")
-      overlap_cars = Car.where(body_type_id: params[:body_type_id])
-      overlap_cars = overlap_cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+      overlap_cars = cars.where(body_type_id: params[:body_type_id]).where('car_name LIKE(?)', "%#{params[:car_name]}%")
 
     elsif params[:maker_id].to_i >= 2
-      overlap_cars = Car.where(maker_id: params[:maker_id])
+      overlap_cars = cars.where(maker_id: params[:maker_id])
 
     elsif params[:body_type_id].to_i >= 2
-      overlap_cars = Car.where(body_type_id: params[:body_type_id])
+      overlap_cars = cars.where(body_type_id: params[:body_type_id])
 
     elsif params[:car_name] != ""
-      overlap_cars = Car.where('car_name LIKE(?)', "%#{params[:car_name]}%")
+      overlap_cars = cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
     end
     return overlap_cars
   end

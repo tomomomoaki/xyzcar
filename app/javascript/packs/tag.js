@@ -15,19 +15,19 @@ function tag_search () {
       searchResult.innerHTML = "";
       if (XHR.response) {
         const tagName = XHR.response.keyword;
-        tagName.forEach((tag) => {
+        for(let i = 0;i < 5;i++) {
           const childElement = document.createElement("div");
           childElement.setAttribute("class", "child");
-          childElement.setAttribute("id", tag.id );
-          childElement.innerHTML = tag.name;
+          childElement.setAttribute("id", tagName[i].id );
+          childElement.innerHTML = tagName[i].name;
           searchResult.appendChild(childElement);
 
-          const clickElement = document.getElementById( tag.id );
+          const clickElement = document.getElementById( tagName[i].id );
           clickElement.addEventListener('click', () => {
             document.getElementById("keyword-search-form").value = clickElement.textContent;
             clickElement.remove();
           });
-        });
+        };
       };
     };
   });

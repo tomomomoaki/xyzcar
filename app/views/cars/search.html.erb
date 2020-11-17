@@ -3,8 +3,8 @@
 <div class='main-index-window'>
   <div class='side-header'>
     <%= form_with url: search_cars_path, method: :get, local: true do |f|%>
-      <div class ='car-sarch-box'>
-        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', class:'keyword-search-form', id:'keyword-search-form' %>
+      <div class ='car-search-box'>
+        <%= f.text_field :keyword, placeholder:'キーワード、タグで探す', value:"#{params[:keyword]}", class:'keyword-search-form', id:'keyword-search-form' %>
         <%= f.submit '検索' %>
         <div class='search-result' id='search-result'>
         </div>
@@ -19,15 +19,24 @@
   <div class='lower-window'>
     
     <%= render "shared/sidebar" %>
-
+    
     <div class='main-review'>
       <div class='review-header'>
-        <span class='keyword'><%= params[:keyword] %></span>  の検索結果
+        <% if params[:keyword] == "" %>
+          最新投稿一覧
+        <% else %>
+          <%= "#{params[:keyword]} の検索結果"%>
+        <% end %>
       </div>
       <div class='reviews'>
-        <%= render partial:'car', collection: @cars %>
+        <% if @cars == [] %>
+          <div class='non-review'>該当するレビューはありませんでした。</div>
+        <% else %>
+          <%= render partial:'car', collection: @cars %>
+        <% end %>
       </div>
       <div class='review-footer'>
+        <%= paginate @cars %>
       </div>
     </div>
   </div>

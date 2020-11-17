@@ -2,10 +2,10 @@ class CarsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :destroy]
   before_action :find_car, only:[:show, :edit, :update, :destroy]
   before_action :redirect_root, only:[:edit, :update, :destroy]
+  before_action :scraping_info, only:[:index, :search, :type]
 
   def index
-    @cars = Car.all.limit(14).includes(:user, :tags).order('created_at DESC')
-    @elements = Scraping.get_url
+    @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
   end
 
   def new
@@ -55,20 +55,27 @@ class CarsController < ApplicationController
   end
 
   def search
-    if (params[:keyword])[0] == '#'
-      @cars = Tag.search(params[:keyword]).order('created_at DESC')
+    if params[:keyword] == ""
+      redirect_to root_path
+    elsif (params[:keyword])[0] == '#'
+      @cars = Tag.search(params[:keyword]).order('created_at DESC').page(params[:page])
     else
-      @cars = Car.search(params[:keyword]).order('created_at DESC')
+      @cars = Car.search(params[:keyword]).order('created_at DESC').page(params[:page])
     end
   end
 
   def type
-    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
-      redirect_to root_path
+    if params[:keyword] == ""
+      @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
     else
-      @cars = Car.type(params).order('created_at DESC')
-      @elements = Scraping.get_url
-      render "index"
+      search
+    end
+
+    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
+      render "search"
+    else
+      @cars = Car.type(params,@cars).order('created_at DESC').page(params[:page])
+      render "search"
     end
   end
 
@@ -84,6 +91,10 @@ class CarsController < ApplicationController
   
   def redirect_root
     redirect_to root_path unless current_user == @car.user
+  end
+
+  def scraping_info
+    @elements = Scraping.get_url
   end
 end
 

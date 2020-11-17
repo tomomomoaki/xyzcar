@@ -10,7 +10,7 @@ class Tag < ApplicationRecord
       tag = Tag.where(name: search)
       tag[0].cars
     else
-      Car.all.includes(:user, :tags)
+      Car.where('title LIKE(?) or text LIKE(?)' , "%#{search}%",  "%#{search}%")
     end
   end
 end
