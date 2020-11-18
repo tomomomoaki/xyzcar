@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">タイトル（最大50字まで）</label>
+      <label for="title" class="form-text">タイトル（最大50字まで）</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_field :title, class:"car-title", id:"title", placeholder:"title", maxlength:"50" %>
@@ -30,39 +30,39 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">本文</label>
+      <label for="text" class="form-text">本文</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_area :text, class:"car-text", id:"text", placeholder:"text" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">メーカー</label>
+      <label for="car-maker" class="form-text">メーカー</label>
     </div>
-    <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+    <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"car-maker"}) %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">車名</label>
+      <label for="car-name" lass="form-text">車名</label>
     </div>
-    <%= f.text_field :car_name, class:"car-car-name", id:"car_name", maxlength:"15" %>
+    <%= f.text_field :car_name, class:"car-car-name", id:"car-name", maxlength:"15" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">ボディタイプ</label>
+      <label for="car-body-type" class="form-text">ボディタイプ</label>
     </div>
-    <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+    <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"car-body-type"}) %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">タグ付け（2つ以上タグ付けする時は、タグごとに「,」で区切ってください）</label>
+      <label for="tag-form" class="form-text">タグ付け（2つ以上タグ付けする時は、タグごとに「,」で区切ってください）</label>
     </div>
     <div class='tag-form'>
       <%= f.text_field :name, placeholder:'例）#かっこいい,#すごい', class:"car-tag", id:'tag-form' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.submit '投稿する'%>
+    <%= f.submit '投稿する', name:"commit"%>
   </div>
 </div>
 <% end %>

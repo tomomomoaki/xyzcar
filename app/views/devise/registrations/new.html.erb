@@ -20,7 +20,7 @@
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">ニックネーム</label>
+          <label for="nickname" class="form-text">ニックネーム</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) 太郎", maxlength:"15" %>
@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">Email</label>
+          <label for="email" class="form-text">Email</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.email_field :email, class:"input-default", id:"email", autofocus: true, placeholder:"例) car-car@gmail.com", autocomplete: "email" %>
@@ -36,7 +36,7 @@
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">Password</label>
+          <label for="password" class="form-text">Password</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上で設定してください", autofocus: true, autocomplete: "new-password" %>
@@ -44,22 +44,22 @@
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">Password（確認用）</label>
+          <label for="password_confirmation" class="form-text">Password（確認用）</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.password_field :password_confirmation, class:"input-default", id:"password", autofocus: true, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, class:"input-default", id:"password_confirmation", autofocus: true, autocomplete: "new-password" %>
       </div>
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">好きな車</label>
+          <label for="favorite_car" class="form-text">好きな車</label>
         </div>
         <%= f.text_area :favorite_car, class:"input-default", id:"favorite_car", placeholder:"例) ランドクルーザー", maxlength:"40" %>
       </div>
 
       <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">自己紹介</label>
+          <label for="introduction" class="form-text">自己紹介</label>
         </div>
         <%= f.text_area :introduction, class:"input-default-intro", id:"introduction" ,placeholder:"例）こんにちは、たくさん投稿していきたいと思います。\nよろしくお願いします。"%>
       </div>
@@ -67,7 +67,7 @@
       
 
       <div class="actions">
-        <%= f.submit "登録" %>
+        <%= f.submit "登録", name:'commit'%>
       </div>
     <% end %>
 

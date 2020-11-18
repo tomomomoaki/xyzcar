@@ -10,7 +10,7 @@
         </div>
       </div>
     <% end %>
-    <%= link_to  new_car_path do %>
+    <%= link_to  new_car_path, id:"new-review-btn" do %>
     <div class='new-review-btn'>
       <span class='new-review-btn-text'>レビューを投稿する</span>
     </div>
@@ -44,8 +44,7 @@
         <% end %>
       </div>
       <div class='review-footer'>
-         <%#= link_to_previous_page @cars, 'もっと見る', remote: true, class:'more-review', id:'more-review' %>
-         <%= paginate @cars %>
+        <%= paginate @cars %>
       </div>
     </div>
   </div>

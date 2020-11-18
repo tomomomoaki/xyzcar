@@ -1,13 +1,13 @@
 <li class='list'>
   <div class='review-contents'>
-    <%= link_to car_path(car), class:'review-contents' do %>
+    <%= link_to car_path(car), class:'review-links' do %>
     <div class='car-img-content'>
       <%= image_tag car.images[0].url, class: "car-img" if car.images? %>
       <%= image_tag 'img_noimage.png', class: "car-img" unless car.images? %>
     </div>
     <% end %>
     <div class='car-info'>
-      <%= link_to car_path(car), class:'review-contents' do %>
+      <%= link_to car_path(car), class:'review-links' do %>
       <div class='review-title'>
         <%= car.title %>
       </div>
