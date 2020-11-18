@@ -116,14 +116,19 @@
   margin: auto;
   padding: 30px 30px;
   font-size: 20px;
-  border-bottom: solid 1px gray;
+}
+
+.comment-info{
+  text-align: center;
+  background-color: #fff6de;
 }
 
 .car-comment-box{
   width: 50vw;
   height: 100%;
-  margin: 20px auto 0;
+  margin: 20px auto 40px;
   padding: 10px;
+  border: solid 1px #777777;
 }
 
 .comment-area{
@@ -132,21 +137,39 @@
 }
 
 .comment{
-  width: 100%;
-  margin: 10px 0;
+  margin: 20px 0;
   padding:5px;
-  border: solid 1px darkgray;
+}
+
+.comment-user{
+  padding: 5px 0;
+  margin-right: 10px;
+}
+
+.comment-user a{
+  font-weight: 900;
+  font-size: 15px;
+  color: black;
+}
+
+.comment-text{
+  padding:5px 10px;
+  background-color: rgb(148, 230, 233);
+  border-radius: 10px;
 }
 
 .comment-form{
-  margin: 10px 0;
-  align-items: center;
+  height: 100%;
+  margin-top: 10px;
 }
 
 .comment-text-form{
-  width: 100%;
+  height: 100px;
+  width: calc(100% - 10px);
+  padding: 5px;
 }
 .comment-send-form{
-  margin: 20px;
+  height:50px;
+  width: 100%;
   text-align: center;
 }

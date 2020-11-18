@@ -103,18 +103,42 @@
 }
 
 .review-footer{
-  height: 70px;
+  height: 90px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.kaminari{
+.pagination{
+  display: flex;
+  align-items: center;
+}
+
+.kaminari-other{
   color: #ffffff;
   font-size: 20px;
   padding: 4px;
   margin: 3px 5px;
-  background-color: #333333;
+  background-color: #666666;
   border: solid 1px #ffffff;
+}
+
+.kaminari-page{
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+}
+
+.kaminari{
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  padding: 4px;
+  margin: auto 10px;
+  background-color: #666666;
+  border: solid 1px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

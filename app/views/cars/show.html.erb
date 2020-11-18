@@ -17,8 +17,8 @@
         </div>
         <div class='car-edit-delete-btn'>
           <% if current_user == @car.user %>
-            <%= link_to '編集', edit_car_path(@car), class:'car-edit-btn' %>
-            <%= link_to '削除', car_path(@car), method: :delete, class:'car-delete-btn' %>
+            <%= link_to '編集', edit_car_path(@car), class:'car-edit-btn', id:'car-edit-btn' %>
+            <%= link_to '削除', car_path(@car), method: :delete, class:'car-delete-btn', id:'car-delete-btn' %>
           <% end %>
         </div>
       </div>
@@ -47,21 +47,26 @@
       <%= safe_join(@car.text.split("\r\n"), tag.br) %>
     </div>
     <div class='car-comment-box'>
-    コメント欄
       <div class='comment-area'>
         <% @car.comments.each do |comment| %>
-          <div class='comment'>
-            <b><%=link_to comment.user.nickname, user_path(@car.user) %></b>：<%= comment.text %>
+        <div class="comment">
+          <div class='comment-user'>
+            <%=link_to comment.user.nickname, user_path(comment.user) %>
           </div>
+          <div class='comment-text'>
+            <%= safe_join(comment.text.split("\r\n"), tag.br) %>
+          </div>
+        </div>
         <% end %>
       </div>
+      <div class='comment-info'>
+        相手のことを考え丁寧なコメントを心がけましょう。
+      </div>
       <% if user_signed_in?%>
-        <div class='comment-form'>
-          <%= form_with model: [@car, @comment], local: true do |f| %>
-            <%= f.text_field :text, class:'comment-text-form'%>
-            <%= f.submit 'コメントする' ,class:'comment-send-form'%>
-          <% end %>
-        </div>
+        <%= form_with model: [@car, @comment], class:"comment-form", id:"comment-form", local: true do |f| %>
+          <%= f.text_area :text, class:'comment-text-form', id:'comment-text-form'%>
+          <%= f.submit 'コメントする' ,class:'comment-send-form', name:'commit'%>
+        <% end %>
       <% end %>
     </div>
   </div>
