@@ -75,14 +75,12 @@ function preview () {
   });
 
   window.deleteId = function deleteId(element) {
-    debugger;
     const ID = element.id.slice(-1);
     document.getElementById(`car-image-${ID}`).remove();
     document.getElementById(`image-element-${ID}`).remove();
   }
 
   CarImage.addEventListener('change', (e) => {
-    debugger;
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
     createImageHTML(blob);
