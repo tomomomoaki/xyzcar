@@ -32,7 +32,7 @@ function preview () {
     inputHTML.setAttribute('id',`car-image-${Num}`);
     inputHTML.setAttribute('name', 'car[images][]');
     inputHTML.setAttribute('type','file');
-    //inputHTML.setAttribute('style','display: none;');
+    inputHTML.setAttribute('style','display: none;');
 
     const selectHTML = document.createElement('div');
     selectHTML.setAttribute('id', 'select-file-new');

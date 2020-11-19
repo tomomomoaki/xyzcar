@@ -73,12 +73,13 @@
 .main-image{
   height: 400px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .sub-image-box{
   height: 94px;
   width: calc(100% - 4px);
+  margin-top: 5px;
   overflow: auto;
   border: solid 2px black;
   display: flex;
@@ -93,7 +94,7 @@
   height: 80px;
   width: 120px;
   margin: 5px;
-  object-fit: cover;
+  object-fit: contain;
   border: solid 1px gray;
   cursor: pointer;
   cursor: hand;

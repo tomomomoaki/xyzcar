@@ -63,7 +63,7 @@
 .preview-car-image{
   height: 180px;
   width: 270px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .select-file-box{
