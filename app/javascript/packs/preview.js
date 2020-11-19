@@ -62,11 +62,13 @@ function preview () {
     });
   }
   const selectFile = document.getElementById('select-file');
-
-  const beforeCarImages = JSON.parse(document.getElementById('before-car-images').dataset.json);
-  beforeCarImages.forEach( function(image) {
-    createImageHTML(image.url);
-  });
+  
+  if (document.URL.match(/edit/)) {
+    const beforeCarImages = JSON.parse(document.getElementById('before-car-images').dataset.json);
+    beforeCarImages.forEach( function(image) {
+      createImageHTML(image.url);
+    });
+  }
 
   selectFile.addEventListener('click', () => {
     CarImage.click();

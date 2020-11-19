@@ -11,8 +11,8 @@ car-xyzでは、自動車に乗っていない人が、実際に自動車に乗�
 - URL：https://car-xyz.herokuapp.com/
 
 # テスト用アカウント
-- ID : 
-- PASSWORD : 
+- ID       : tarou@gmail.com
+- PASSWORD : 123qaz
 
 # 利用方法
 実際に自動車に乗った人や、自動車のオーナーから、触れてみないと分からない、乗ってみないと分からない情報を入手することができます。

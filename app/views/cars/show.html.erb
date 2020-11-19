@@ -59,10 +59,10 @@
         </div>
         <% end %>
       </div>
-      <div class='comment-info'>
-        相手のことを考え丁寧なコメントを心がけましょう。
-      </div>
       <% if user_signed_in?%>
+        <div class='comment-info'>
+          相手のことを考え丁寧なコメントを心がけましょう。
+      </div>
         <%= form_with model: [@car, @comment], class:"comment-form", id:"comment-form", local: true do |f| %>
           <%= f.text_area :text, class:'comment-text-form', id:'comment-text-form'%>
           <%= f.submit 'コメントする' ,class:'comment-send-form', name:'commit'%>
