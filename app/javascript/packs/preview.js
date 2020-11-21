@@ -1,7 +1,4 @@
 function preview () {
-  const ImageList = document.getElementById('image-list');
-  const CarImage = document.getElementById('car-image-0');
-  let Num = 0;
 
   const createImageHTML = (blob) => {
 
@@ -61,30 +58,40 @@ function preview () {
       createImageHTML(blob)
     });
   }
+  const ImageList = document.getElementById('image-list');
+  const CarImage = document.getElementById('car-image-0');
   const selectFile = document.getElementById('select-file');
-  
-  if (document.URL.match(/edit/)) {
-    const beforeCarImages = JSON.parse(document.getElementById('before-car-images').dataset.json);
+  let oldElementIds = [];
+  let Num = 0;
+
+  //編集画面に遷移時、最初にもともと保存されていた画像をプレビュー表示させる
+  const beforeCarImagesHtml = document.getElementById('before-car-images');
+  if (beforeCarImagesHtml) {
+    const beforeCarImages = JSON.parse(beforeCarImagesHtml.dataset.json);
     beforeCarImages.forEach( function(image) {
+      oldElementIds.push(Num);
       createImageHTML(image.url);
     });
+    document.getElementById('old-image-ids').value = oldElementIds;
   }
 
   selectFile.addEventListener('click', () => {
     CarImage.click();
   });
 
-  window.deleteId = function deleteId(element) {
-    const ID = element.id.slice(-1);
-    document.getElementById(`car-image-${ID}`).remove();
-    document.getElementById(`image-element-${ID}`).remove();
-  }
-
   CarImage.addEventListener('change', (e) => {
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
     createImageHTML(blob);
   });
+
+  window.deleteId = function deleteId(element) {
+    const ID = element.id.slice(-1);
+    document.getElementById(`car-image-${ID}`).remove();
+    document.getElementById(`image-element-${ID}`).remove();
+    oldElementIds = oldElementIds.filter(a => a !== Number(ID));
+    document.getElementById('old-image-ids').value = oldElementIds;
+  }
 }
 
 if (document.URL.match( /new/ ) || document.URL.match( /edit/ ) || document.URL.match( /cars/ )) {

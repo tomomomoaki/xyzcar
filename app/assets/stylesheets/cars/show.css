@@ -100,6 +100,10 @@
   cursor: hand;
 }
 
+.sub-images:hover{
+  opacity: 0.6;
+}
+
 .car-tag-box{
   width: 50vw;
   height: 100%;
