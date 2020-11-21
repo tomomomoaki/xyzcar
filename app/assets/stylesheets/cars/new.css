@@ -85,6 +85,10 @@
   align-items: center;
 }
 
+.select-file:hover{
+  background-color: #555555;
+}
+
 .select-file-text{
   height: 26px;
   width: 100px;

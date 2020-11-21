@@ -16,7 +16,7 @@ class CarsController < ApplicationController
     @form = SaveCarsTag.new(car_params)
     tag_list = params[:car][:name].split(",")
     if @form.valid?
-      @form.save(tag_list)
+      @form.save(tag_list, [])
       redirect_to root_path
     else
       render :new
@@ -32,10 +32,16 @@ class CarsController < ApplicationController
   end
 
   def update
+    binding.pry
     @form = SaveCarsTag.new(car_params, car: @car)
+    old_images = []
+    old_images_id = params[:car][:old_ids].split(",")
+    old_images_id.each do |id|
+      old_images << @car.images[id.to_i]
+    end
     tag_list = params[:car][:name].split(",")
     if @form.valid?
-      @form.save(tag_list)
+      @form.save(tag_list, old_images)
       return redirect_to car_path(@car)
     else
       render :edit
@@ -82,7 +88,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-  params.require(:car).permit(:title, {images: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
+  params.require(:car).permit(:title, :old_ids, {images: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
   end
 
   def find_car

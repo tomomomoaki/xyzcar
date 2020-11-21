@@ -13,6 +13,7 @@
     <%= f.text_field :title, class:"car-title", id:"title", placeholder:"title", maxlength:"50" %>
   </div>
   <div id="before-car-images" data-json="<%=@car.images.to_json%>"></div>
+  <%= f.text_field :old_ids, id:"old-image-ids", style:"display: none;"%>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">画像（最大10枚まで）</label>
