@@ -1,6 +1,8 @@
 <%= render 'shared/header'%>
 
 <div class='main-show-window'>
+  <div class='back-btn-box'>
+  </div>
   <div class='main-user-show'>
     <div class='user-title-box'>
       <div class='user-show-image'>
@@ -25,7 +27,11 @@
     </div>
     <%= render partial:'cars/car', collection: @cars %>
     <div class='review-footer'>
-      <%= paginate @cars %>
+      <% if @cars == [] %>
+        <div class='non-review'><%=@user.nickname%>さんの投稿は、まだありません</div>
+      <% else %>
+        <%= paginate @cars %>
+      <% end %>
     </div>
   </div>
 </div>
