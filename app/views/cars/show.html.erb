@@ -1,6 +1,9 @@
 <%= render 'shared/header'%>
 
 <div class='main-show-window'>
+  <div class='back-btn-box'>
+    <%=link_to '戻る', :back, class:'back-btn' %>
+  </div>
   <div class='main-show'>
     <div class='car-title-box'>
       <div class='car-title-name'>
@@ -48,15 +51,19 @@
     </div>
     <div class='car-comment-box'>
       <div class='comment-area'>
-        <% @car.comments.each do |comment| %>
-        <div class="comment">
-          <div class='comment-user'>
-            <%=link_to comment.user.nickname, user_path(comment.user) %>
+        <% if @car.comments.blank? %>
+          現在、コメントはありません
+        <% else %>
+          <% @car.comments.each do |comment| %>
+          <div class="comment">
+            <div class='comment-user'>
+              <%=link_to comment.user.nickname, user_path(comment.user) %>
+            </div>
+            <div class='comment-text'>
+              <%= safe_join(comment.text.split("\r\n"), tag.br) %>
+            </div>
           </div>
-          <div class='comment-text'>
-            <%= safe_join(comment.text.split("\r\n"), tag.br) %>
-          </div>
-        </div>
+          <% end %>
         <% end %>
       </div>
       <% if user_signed_in?%>

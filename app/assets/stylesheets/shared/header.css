@@ -9,15 +9,14 @@
 
 .title-box{
   width: 20vw;
-  height: 6vh;
-  padding: 0 30px;
+  height: 100%;
   display:flex;
   justify-content: center;
   align-items: center;
 }
 
 .title-box a{
-  height: 6vh;
+  height: 100%;
   color: #ffffff;
   font-size: 27px;
   text-decoration: none;

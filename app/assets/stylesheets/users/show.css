@@ -1,3 +1,12 @@
+.main-user-show{
+  width: 60vw;
+  height: 100%;
+  border: solid 1px black; 
+  margin: 50px auto 50px;
+  justify-content: center;
+  background-color: white;
+}
+
 .user-title-box{
   height: 300px;
   width: 60vw;
@@ -40,7 +49,7 @@
 .exsample-car{
   height: 100%;
   width: 80vw;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 .exsample-car-title{

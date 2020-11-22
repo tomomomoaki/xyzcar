@@ -32,7 +32,6 @@ class CarsController < ApplicationController
   end
 
   def update
-    binding.pry
     @form = SaveCarsTag.new(car_params, car: @car)
     old_images = []
     old_images_id = params[:car][:old_ids].split(",")
