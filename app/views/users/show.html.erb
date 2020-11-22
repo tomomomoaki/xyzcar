@@ -1,7 +1,7 @@
 <%= render 'shared/header'%>
 
 <div class='main-show-window'>
-  <div class='main-show'>
+  <div class='main-user-show'>
     <div class='user-title-box'>
       <div class='user-show-image'>
       </div>
@@ -24,6 +24,9 @@
       <%=@user.nickname%>さんのレビュー
     </div>
     <%= render partial:'cars/car', collection: @cars %>
+    <div class='review-footer'>
+      <%= paginate @cars %>
+    </div>
   </div>
 </div>
 

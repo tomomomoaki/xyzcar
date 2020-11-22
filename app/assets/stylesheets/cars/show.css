@@ -7,11 +7,25 @@
   background-color: cadetblue;
 }
 
+.back-btn-box{
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn{
+  padding: 5px 20px;
+  margin: auto;
+  color: #ffffff;
+  background-color: black;
+  border: solid 1px #ffffff;
+}
+
 .main-show{
   width: 60vw;
   height: 100%;
   border: solid 1px black; 
-  margin: 100px auto;
+  margin: 10px auto 50px;
   justify-content: center;
   background-color: white;
 }
@@ -142,8 +156,7 @@
 }
 
 .comment{
-  margin: 20px 0;
-  padding:5px;
+  margin-bottom: 20px;
 }
 
 .comment-user{
