@@ -62,6 +62,18 @@
   font-size: 20px;
 }
 
+.top-image-box{
+  height: 400px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.top-image{
+  height: 100%;
+  width: 100%;
+}
+
 .lower-window{
   max-height: 3700px;
   height: 100%;
