@@ -1,8 +1,8 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :edit, :destroy]
-  before_action :find_car, only:[:show, :edit, :update, :destroy]
-  before_action :redirect_root, only:[:edit, :update, :destroy]
-  before_action :scraping_info, only:[:index, :search, :type]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :find_car, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_root, only: [:edit, :update, :destroy]
+  before_action :scraping_info, only: [:index, :search, :type]
 
   def index
     @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
@@ -14,7 +14,7 @@ class CarsController < ApplicationController
 
   def create
     @form = SaveCarsTag.new(car_params)
-    tag_list = params[:car][:name].split(",")
+    tag_list = params[:car][:name].split(',')
     if @form.valid?
       @form.save(tag_list, [])
       redirect_to root_path
@@ -34,33 +34,32 @@ class CarsController < ApplicationController
   def update
     @form = SaveCarsTag.new(car_params, car: @car)
     old_images = []
-    old_images_id = params[:car][:old_ids].split(",")
+    old_images_id = params[:car][:old_ids].split(',')
     old_images_id.each do |id|
       old_images << @car.images[id.to_i]
     end
-    tag_list = params[:car][:name].split(",")
+    tag_list = params[:car][:name].split(',')
     if @form.valid?
       @form.save(tag_list, old_images)
-      return redirect_to car_path(@car)
+      redirect_to car_path(@car)
     else
       render :edit
     end
   end
 
   def destroy
-    if @car.destroy
-      redirect_to root_path
-    end
+    redirect_to root_path if @car.destroy
   end
 
   def search_tag
-    return nil if params[:keyword] == ""
-    tag = Tag.where(['name LIKE(?)', "%#{(params[:keyword])}%"])
-    render json:{ keyword: tag }
+    return nil if params[:keyword] == ''
+
+    tag = Tag.where(['name LIKE(?)', "%#{params[:keyword]}%"])
+    render json: { keyword: tag }
   end
 
   def search
-    if params[:keyword] == ""
+    if params[:keyword] == ''
       redirect_to root_path
     elsif (params[:keyword])[0] == '#'
       @cars = Tag.search(params[:keyword]).order('created_at DESC').page(params[:page])
@@ -70,30 +69,30 @@ class CarsController < ApplicationController
   end
 
   def type
-    if params[:keyword] == ""
+    if params[:keyword] == ''
       @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
     else
       search
     end
 
-    if (params[:maker_id] == "1") && (params[:body_type_id] == "1") && (params[:car_name] == "")
-      render "search"
+    if (params[:maker_id] == '1') && (params[:body_type_id] == '1') && (params[:car_name] == '')
+      render 'search'
     else
-      @cars = Car.type(params,@cars).order('created_at DESC').page(params[:page])
-      render "search"
+      @cars = Car.type(params, @cars).order('created_at DESC').page(params[:page])
+      render 'search'
     end
   end
 
   private
 
   def car_params
-  params.require(:car).permit(:title, :old_ids, {images: []}, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
+    params.require(:car).permit(:title, :old_ids, { images: [] }, :text, :maker_id, :car_name, :body_type_id, :name).merge(user_id: current_user.id)
   end
 
   def find_car
     @car = Car.find(params[:id])
   end
-  
+
   def redirect_root
     redirect_to root_path unless current_user == @car.user
   end
@@ -102,4 +101,3 @@ class CarsController < ApplicationController
     @elements = Scraping.get_url
   end
 end
-

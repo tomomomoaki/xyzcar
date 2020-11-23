@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe  Comment, type: :model do
+RSpec.describe Comment, type: :model do
   describe '新規コメント投稿' do
     before do
       @comment = FactoryBot.build(:comment)

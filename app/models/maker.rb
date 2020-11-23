@@ -10,7 +10,7 @@ class Maker < ActiveHash::Base
     { id: 8, name: '三菱' },
     { id: 9, name: 'スズキ' },
     { id: 10, name: 'レクサス' },
-    { id: 11, name: 'フォルクスワーゲン'},
+    { id: 11, name: 'フォルクスワーゲン' },
     { id: 12, name: 'BMW' },
     { id: 13, name: 'メルセデス・ベンツ' },
     { id: 14, name: 'アウディ' },
@@ -20,7 +20,7 @@ class Maker < ActiveHash::Base
     { id: 18, name: 'ポルシェ' },
     { id: 19, name: 'ミニ' },
     { id: 20, name: 'キャデラック' },
-    { id: 21, name: 'シボレー'},
+    { id: 21, name: 'シボレー' },
     { id: 22, name: 'ハマー' },
     { id: 23, name: 'アストンマーティン' },
     { id: 24, name: 'ジャガー' },
@@ -30,7 +30,7 @@ class Maker < ActiveHash::Base
     { id: 28, name: 'シトロエン' },
     { id: 29, name: 'DSオートモビル' },
     { id: 30, name: 'アルファロメオ' },
-    { id: 31, name: 'フェラーリ'},
+    { id: 31, name: 'フェラーリ' },
     { id: 32, name: 'ランボルギーニ' },
     { id: 33, name: 'マセラティ' },
     { id: 34, name: 'ロールスロイス' },
@@ -40,9 +40,9 @@ class Maker < ActiveHash::Base
     { id: 38, name: 'ジープ' },
     { id: 39, name: 'フォード' },
     { id: 40, name: 'アバルト' },
-    { id: 41, name: 'パガーニ'},
+    { id: 41, name: 'パガーニ' },
     { id: 42, name: 'ヒュンダイ' },
     { id: 43, name: '起亜' },
-    { id: 44, name: 'その他'}
+    { id: 44, name: 'その他' }
   ]
 end

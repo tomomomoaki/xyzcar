@@ -78,3 +78,7 @@ gem 'fog-aws'
 gem 'kaminari'
 
 gem 'kaminari-bootstrap', '~> 3.0.1'
+
+group :development do
+  gem 'rubocop', require: false
+end

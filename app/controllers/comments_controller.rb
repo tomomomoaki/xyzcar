@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: :create
 
   def create
     @comment = Comment.new(comment_params)
@@ -11,13 +11,11 @@ before_action :authenticate_user!, only: :create
       render 'cars/show'
 
     end
-      
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:text).merge(user_id: current_user.id, car_id: params[:car_id] )
+    params.require(:comment).permit(:text).merge(user_id: current_user.id, car_id: params[:car_id])
   end
-
 end
