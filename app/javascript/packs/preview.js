@@ -74,17 +74,20 @@ function preview () {
     });
     document.getElementById('old-image-ids').value = oldElementIds;
   }
-
+  
+  //「画像を選択する」という要素をクリックすると、input要素がクリックされたことになる
   selectFile.addEventListener('click', () => {
     CarImage.click();
   });
 
+  //画像が選択されるとプレビュー表示へ
   CarImage.addEventListener('change', (e) => {
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
     createImageHTML(blob);
   });
 
+  //プレビューの削除ボタンを押すと、プレビューを削除する
   window.deleteId = function deleteId(element) {
     const ID = element.id.slice(-1);
     document.getElementById(`car-image-${ID}`).remove();

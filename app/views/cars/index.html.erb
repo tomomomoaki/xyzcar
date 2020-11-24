@@ -16,37 +16,41 @@
     </div>
     <% end %>
   </div>
-  <div class='lower-window'>
-    
-    <%= render "shared/sidebar" %>
-    
-    <div class='main-review'>
-      <div class='scraping-box'>
-          <div class='scraping-title'>
-            ＜最新マイナーチェンジ情報＞
-          </div>
-          <div class='scraping-url'>
-            <ul>
-              <% @elements.slice(0,5).each do |element|%>
-                <li><%= link_to "・#{element}", element.href %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      <div class='review-header'>
-        最新投稿一覧
-      </div>
-      <div class='reviews' id='reviews'>
-        <% if @cars == [] %>
-          <div class='non-review'>該当するレビューはありませんでした。</div>
-        <% else %>
-          <%= render partial:'car', collection: @cars %>
+  <div class='top-image-box'>
+    <%= image_tag 'Maserati.jpeg', class: "top-image" %>
+  </div>
+  <div class='scraping-box'>
+    <div class='scraping-title'>
+      最新モデルチェンジ情報
+    </div>
+    <div class='scraping-url'>
+      <ul>
+        <% @elements.slice(2,5).each do |element|%>
+          <li class='model-change-url'><%= link_to "・#{element}", element.href %></li>
         <% end %>
-      </div>
-      <div class='review-footer'>
-        <%= paginate @cars %>
+      </ul>
+    </div>
+  </div>
+  <div class='review-header'>
+    最新投稿一覧
+  </div>
+  <div class='lower-window'>
+    <div class='lower-window-box'>
+      <%= render "shared/sidebar" %>
+      
+      <div class='main-review'>
+        <div class='reviews'>
+          <% if @cars == [] %>
+            <div class='non-review'>該当するレビューはありませんでした。</div>
+          <% else %>
+            <%= render partial:'car', collection: @cars %>
+          <% end %>
+        </div>
       </div>
     </div>
+  </div>
+  <div class='review-footer'>
+    <%= paginate @cars %>
   </div>
 </div>
 

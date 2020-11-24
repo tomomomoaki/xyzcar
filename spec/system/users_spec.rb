@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ユーザー新規登録", type: :system do
+RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -13,9 +13,9 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
       fill_in 'Password（確認用）', with: @user.password_confirmation
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change {User.count}.by(1)
+      end.to change { User.count }.by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content('ログアウト')
       expect(page).to have_no_content('新規登録')
@@ -28,19 +28,19 @@ RSpec.describe "ユーザー新規登録", type: :system do
       visit root_path
       expect(page).to have_content('新規登録')
       visit new_user_registration_path
-      fill_in 'ニックネーム', with: ""
-      fill_in 'Email', with: ""
-      fill_in 'Password', with: ""
-      fill_in 'Password（確認用）', with: ""
-      expect{
+      fill_in 'ニックネーム', with: ''
+      fill_in 'Email', with: ''
+      fill_in 'Password', with: ''
+      fill_in 'Password（確認用）', with: ''
+      expect  do
         find('input[name="commit"]').click
-      }.to change {User.count}.by(0)
+      end.to change { User.count }.by(0)
       expect(current_path).to eq '/users'
     end
   end
 end
 
-RSpec.describe "ユーザーログイン", type: :system do
+RSpec.describe 'ユーザーログイン', type: :system do
   before do
     @user = FactoryBot.create(:user)
   end
@@ -64,12 +64,10 @@ RSpec.describe "ユーザーログイン", type: :system do
       visit root_path
       expect(page).to have_content('ログイン')
       visit new_user_session_path
-      fill_in 'Email', with: ""
-      fill_in 'Password', with: ""
+      fill_in 'Email', with: ''
+      fill_in 'Password', with: ''
       find('input[name="commit"]').click
       expect(current_path).to eq new_user_session_path
     end
   end
-  
 end
-

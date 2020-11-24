@@ -1,7 +1,12 @@
 .side-bar{
-  height: 100%;
-  width: 18vw;
-  background-color: gray;
+  width: 23vw;
+}
+
+.sidebar-box{
+  background-color: #f8f8f8;
+  border: solid 2px gray;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
 .side-bar-title{
@@ -9,8 +14,8 @@
   width: 100%;
   padding: 10px 0;
   font-size: 20px;
-  color: #ffffff;
-  background-color: #444444;
+  font-weight: 700;
+  border-bottom: solid 1px gray;
   text-align: center;
 }
 
@@ -47,7 +52,23 @@
   align-items: center;
   border-style: none;
   background-color: #ffffff;
+  border: solid 1px black;
   height: 30px;
   width: 30%;
   margin: auto;
+}
+
+.popular-tag-element{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 10px 0;
+}
+
+.popular-tag{
+  padding: 0 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: solid 1px black;
 }

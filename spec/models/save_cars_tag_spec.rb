@@ -25,14 +25,14 @@ RSpec.describe SaveCarsTag, type: :model do
         expect(@sct.errors.full_messages).to include("Title can't be blank")
       end
       it 'titleが50字以上だと登録できない' do
-        @sct.title = "123456789012345678901234567890123456789012345678901"
+        @sct.title = '123456789012345678901234567890123456789012345678901'
         @sct.valid?
-        expect(@sct.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+        expect(@sct.errors.full_messages).to include('Title is too long (maximum is 50 characters)')
       end
       it 'imagesが10枚以上だと登録できない' do
-        @sct.images = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png"]
+        @sct.images = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png']
         @sct.valid?
-        expect(@sct.errors.full_messages).to include("Images is too long (maximum is 10 characters)")
+        expect(@sct.errors.full_messages).to include('Images is too long (maximum is 10 characters)')
       end
       it 'textが空だと登録できない' do
         @sct.text = nil
