@@ -42,7 +42,9 @@
       <% end %>
       <div class='narrow-down'>
         <div class='narrow-down-btn'>
-          <%= link_to 'クリア', root_path, class:"narrow-submit-btn"%>
+          <% if current_page?(search_cars_path) || current_page?(type_cars_path) %>
+            <%= link_to 'クリア', type_cars_path(maker_id: "1", body_type_id: "1", car_name: '', keyword: ''), class:"narrow-submit-btn"%>
+          <% end %>
           <%= f.submit '決定', class:"narrow-submit-btn"%>
         </div>
       </div>
