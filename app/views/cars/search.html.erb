@@ -16,29 +16,30 @@
     </div>
     <% end %>
   </div>
+    <div class='review-header'>
+      <% if params[:keyword] == "" %>
+        最新投稿一覧
+      <% else %>
+        <b><%= "#{params[:keyword]}"%></b>の検索結果
+      <% end %>
+    </div>
   <div class='lower-window'>
-    
-    <%= render "shared/sidebar" %>
-    
-    <div class='main-review'>
-      <div class='review-header'>
-        <% if params[:keyword] == "" %>
-          最新投稿一覧
-        <% else %>
-          <%= "#{params[:keyword]} の検索結果"%>
-        <% end %>
-      </div>
-      <div class='reviews'>
-        <% if @cars == [] %>
-          <div class='non-review'>該当するレビューはありませんでした。</div>
-        <% else %>
-          <%= render partial:'car', collection: @cars %>
-        <% end %>
-      </div>
-      <div class='review-footer'>
-        <%= paginate @cars %>
+    <div class='lower-window-box'>
+      <%= render "shared/sidebar" %>
+      
+      <div class='main-review'>
+        <div class='reviews'>
+          <% if @cars == [] %>
+            <div class='non-review'>該当するレビューはありませんでした。</div>
+          <% else %>
+            <%= render partial:'car', collection: @cars %>
+          <% end %>
+        </div>
       </div>
     </div>
+  </div>
+  <div class='review-footer'>
+    <%= paginate @cars %>
   </div>
 </div>
 

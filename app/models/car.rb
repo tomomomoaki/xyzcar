@@ -11,7 +11,7 @@ class Car < ApplicationRecord
   mount_uploaders :images, ImagesUploader
   serialize :images, JSON
 
-  paginates_per 14
+  paginates_per 8
 
   def self.search(search)
     if !search.nil?
