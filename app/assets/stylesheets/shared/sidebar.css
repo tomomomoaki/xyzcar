@@ -1,12 +1,12 @@
 .side-bar{
   width: 23vw;
-  margin: 20px 0;
 }
 
-.narrow-down-box{
+.sidebar-box{
   background-color: #f8f8f8;
   border: solid 2px gray;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 .side-bar-title{
@@ -56,4 +56,19 @@
   height: 30px;
   width: 30%;
   margin: auto;
+}
+
+.popular-tag-element{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 10px 0;
+}
+
+.popular-tag{
+  padding: 0 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: solid 1px black;
 }

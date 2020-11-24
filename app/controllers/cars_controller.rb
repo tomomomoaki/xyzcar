@@ -6,6 +6,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
+    #タグランキング上位3つを取り出す
+    @tags = Tag.find(CarTag.group(:tag_id).order('count(tag_id) desc').limit(3).pluck(:tag_id))
   end
 
   def new

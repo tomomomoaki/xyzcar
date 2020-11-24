@@ -1,5 +1,5 @@
 <div class='side-bar'>
-  <div class='narrow-down-box'>
+  <div class='sidebar-box'>
     <div class='side-bar-title'>
       絞り込み検索
     </div>
@@ -50,4 +50,16 @@
       </div>
     <% end %>
   </div>
+  <% if current_page?(root_path)%>
+  <div class='sidebar-box'>
+    <div class='side-bar-title'>
+      人気タグ
+    </div>
+    <% @tags.each do |tag| %>
+      <div class='popular-tag-element'>
+        <span class='popular-tag' ><%=link_to tag.name, search_cars_path(keyword: tag.name) %></span>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
