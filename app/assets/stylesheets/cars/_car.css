@@ -38,10 +38,11 @@ a {
 
 .names{
   display: flex;
+  justify-content: space-between;
 }
 
 .spans{
-  color: rgb(17, 0, 255);
+  color: gray;
 }
 
 .review-title{

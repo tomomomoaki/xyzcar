@@ -9,10 +9,15 @@
       <div class='car-title-name'>
         <%= @car.title %>
       </div>
-      <div class='car-info'>
-        <span class='spans'><%= @car.maker.name %>   /</span>
-        <span class='spans'><%= @car.car_name %>   /</span>
-        <span class='spans'><%= @car.body_type.name %></span>
+      <div class='car-mnb-time'>
+        <div>
+          <span class='mnb'><%= @car.maker.name %>   /</span>
+          <span class='mnb'><%= @car.car_name %>   /</span>
+          <span class='mnb'><%= @car.body_type.name %></span>
+        </div>
+        <div>
+          <span class='spans'><%= l @car.created_at %></span>
+        </div>
       </div>
       <div class='car-user-name-box'>
         <div class='car-user-name'>
