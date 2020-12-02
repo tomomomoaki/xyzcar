@@ -15,9 +15,7 @@
       <div class='names'>
         <div class='user-name'><b><i><%=link_to car.user.nickname, user_path(car.user) %></i></b></div>
         <div class='car-name-type'>
-          <span class='spans'><%= car.maker.name %>   /</span>
-          <span class='spans'><%= car.car_name %>   /</span>
-          <span class='spans'><%= car.body_type.name %></span>
+          <span class='spans'><%= car.created_at.strftime('%Y/%m/%d') %></span>
         </div>
       </div>
       <div class='review-text-sentence'>
