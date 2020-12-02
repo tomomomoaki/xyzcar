@@ -18,7 +18,7 @@
 # アプリケーション名
 # car-xyz
 
-- URL：https://car-xyz.herokuapp.com/
+- URL：https://car-xyz.com/
 
 # テスト用アカウント
 - ID       : tarou@gmail.com
