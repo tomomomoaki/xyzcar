@@ -7,7 +7,7 @@ class Car < ApplicationRecord
   has_many :car_tags, dependent: :destroy
   has_many :tags, through: :car_tags
   has_many :comments
-
+  has_many :notifications, dependent: :destroy
   mount_uploaders :images, ImagesUploader
   serialize :images, JSON
 
