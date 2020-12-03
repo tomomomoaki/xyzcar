@@ -6,8 +6,10 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
-    #タグランキング上位3つを取り出す
+    #ランキング上位3つを取り出す
     @tags = Tag.find(CarTag.group(:tag_id).order('count(tag_id) desc').limit(3).pluck(:tag_id))
+    @makers = Car.group(:maker_id).order('count(maker_id) desc').limit(3)
+    @bodytypes = Car.group(:body_type_id).order('count(body_type_id) desc').limit(3)
   end
 
   def new

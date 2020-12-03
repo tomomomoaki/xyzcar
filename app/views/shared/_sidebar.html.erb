@@ -53,12 +53,36 @@
   <% if current_page?(root_path)%>
   <div class='sidebar-box'>
     <div class='side-bar-title'>
-      人気タグ
+      最近の人気タグ
     </div>
     <% @tags.each do |tag| %>
       <div class='popular-tag-element'>
         <span class='popular-tag' ><%=link_to tag.name, search_cars_path(keyword: tag.name) %></span>
       </div>
+    <% end %>
+  </div>
+  <div class='sidebar-box'>
+    <div class='side-bar-title'>
+      最近の人気メーカー
+    </div>
+    <% @makers.each do |maker| %>
+      <% if maker.maker_id != "1" %>
+      <div class='popular-tag-element'>
+        <span class='popular-tag' ><%=link_to maker.maker.name, search_cars_path(maker_id: maker.maker_id) %></span>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class='sidebar-box'>
+    <div class='side-bar-title'>
+      最近の人気ボディタイプ
+    </div>
+    <% @bodytypes.each do |bodytype| %>
+      <% if bodytype.body_type_id != "1" %>
+      <div class='popular-tag-element'>
+        <span class='popular-tag' ><%=link_to bodytype.body_type.name, search_cars_path(body_type_id: bodytype.body_type_id) %></span>
+      </div>
+      <% end %>
     <% end %>
   </div>
   <% end %>
