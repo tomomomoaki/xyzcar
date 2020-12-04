@@ -6,6 +6,7 @@
   <div class='user-box'>
     <ul class='user-list'>
       <% if user_signed_in?%>
+        <li><%=link_to '通知' , '#', class:'header-user-btn'%></li>
         <li><%=link_to current_user.nickname , user_path(current_user), class:'header-user-btn'%></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-user-btn'%></li>
       <% else %>

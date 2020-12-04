@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.valid?
       @comment.save
+      @comment.car.save_notification_comment(@comment)
       redirect_to car_path(@comment.car)
     else
       @car = @comment.car
       render 'cars/show'
-
     end
   end
 

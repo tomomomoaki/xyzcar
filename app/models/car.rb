@@ -45,4 +45,14 @@ class Car < ApplicationRecord
     end
     overlap_cars
   end
+
+  def save_notification_comment(comment)
+    @notification = Notification.new(
+      car_id: comment.car.id,
+      comment_id: comment.id,
+      send_user_id: comment.user.id,
+      transmitted_user_id: comment.car.user.id
+    )
+    @notification.save
+  end
 end
