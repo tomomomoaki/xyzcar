@@ -32,7 +32,7 @@ class CarsController < ApplicationController
     @comment = Comment.new
     @comments = @car.comments.order('created_at desc')
     if params[:notification_id]
-      @notification = Notification.find(params[:notification_id])
+      @notification = Notification.where(params[:notification_id])
       @notification.update(notice: 'true')
     end
   end
@@ -112,6 +112,6 @@ class CarsController < ApplicationController
   end
 
   def notice_notification
-    @notifications = Notification.where(transmitted_user_id: current_user.id).where(notice: 'false')
+    @notifications = Notification.where(transmitted_user_id: current_user.id).where(notice: 'false') if user_signed_in?
   end
 end

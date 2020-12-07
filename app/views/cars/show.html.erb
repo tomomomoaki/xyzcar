@@ -16,7 +16,7 @@
           <span class='mnb'><%= @car.body_type.name %></span>
         </div>
         <div>
-          <span class='spans'><%= l @car.created_at %></span>
+          <span class='spans'><%= @car.created_at.strftime('%Y/%m/%d') %></span>
         </div>
       </div>
       <div class='car-user-name-box'>

@@ -6,7 +6,7 @@
   <div class='user-box'>
     <ul class='user-list'>
       <% if user_signed_in?%>
-        <li><%=link_to '通知' , '#', class:'header-user-btn', id:'notification-btn'%>
+        <li><span class='notification-btn', id='notification-btn'>通知</span>
           <% if @notifications.present? %>
             <div class='notice-false'></div>
           <% end %>
