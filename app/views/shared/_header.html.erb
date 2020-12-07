@@ -6,8 +6,14 @@
   <div class='user-box'>
     <ul class='user-list'>
       <% if user_signed_in?%>
+        <li><span class='notification-btn', id='notification-btn'>通知</span>
+          <% if @notifications.present? %>
+            <div class='notice-false'></div>
+          <% end %>
+          <div class='notification-result' id='notification-result'></div>
+        </li>
         <li><%=link_to current_user.nickname , user_path(current_user), class:'header-user-btn'%></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-user-btn'%></li>
+        <li><%=link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-user-btn'%></li>
       <% else %>
         <li><%= link_to '新規登録', new_user_registration_path, class:'header-user-btn' %></li>
         <li><%= link_to 'ログイン', new_user_session_path, class:'header-user-btn' %></li>

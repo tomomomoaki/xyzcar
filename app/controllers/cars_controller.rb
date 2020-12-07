@@ -3,6 +3,7 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:show, :edit, :update, :destroy]
   before_action :redirect_root, only: [:edit, :update, :destroy]
   before_action :scraping_info, only: [:index, :search, :type]
+  before_action :notice_notification, only: [:index, :new, :show, :edit, :search, :type]
 
   def index
     @cars = Car.all.includes(:user, :tags).order('created_at DESC').page(params[:page])
@@ -29,6 +30,11 @@ class CarsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @car.comments.order('created_at desc')
+    if params[:notification_id]
+      @notification = Notification.where(params[:notification_id])
+      @notification.update(notice: 'true')
+    end
   end
 
   def edit
@@ -103,5 +109,9 @@ class CarsController < ApplicationController
 
   def scraping_info
     @elements = Scraping.get_url
+  end
+
+  def notice_notification
+    @notifications = Notification.where(transmitted_user_id: current_user.id).where(notice: 'false') if user_signed_in?
   end
 end

@@ -7,7 +7,7 @@ class Car < ApplicationRecord
   has_many :car_tags, dependent: :destroy
   has_many :tags, through: :car_tags
   has_many :comments
-
+  has_many :notifications, dependent: :destroy
   mount_uploaders :images, ImagesUploader
   serialize :images, JSON
 
@@ -44,5 +44,15 @@ class Car < ApplicationRecord
       overlap_cars = cars.where('car_name LIKE(?)', "%#{params[:car_name]}%")
     end
     overlap_cars
+  end
+
+  def save_notification_comment(comment)
+    @notification = Notification.new(
+      car_id: comment.car.id,
+      comment_id: comment.id,
+      send_user_id: comment.user.id,
+      transmitted_user_id: comment.car.user.id
+    )
+    @notification.save unless @notification.send_user_id == @notification.transmitted_user_id
   end
 end

@@ -118,7 +118,7 @@
 - belongs_to :car
 
 # ER図
-https://gyazo.com/dd48494f834f122bd94bf04aac9cf037
+https://i.gyazo.com/6d7da5e46c472e34f993c0734ec997a5.png
 
 # 画面遷移図
 https://gyazo.com/045b7534f3c278a3315d78e76f9d80a0

@@ -28,7 +28,7 @@
 
 .user-box{
   height: 100%;
-  width: 30vw;
+  width: 500px;
   margin: 0 20px;
 }
 
@@ -37,6 +37,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  position: relative;
 }
 
 .user-list a:hover{
@@ -51,3 +52,54 @@
   border: solid 1px #ffffff;
 }
 
+.notification-btn{
+  color: #ffffff;
+  text-decoration: none;
+  margin: 20px;
+  padding: 10px;
+  border: solid 1px #ffffff;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.notification-btn:hover{
+  color: gray;
+}
+
+.notice-false{
+  height: 17px;
+  width: 17px;
+  background-color: greenyellow;
+  position: absolute;
+  top: 0;
+  left: 105px;
+  border-radius: 20px;
+}
+
+.notification-result{
+  background-color: #ffffff;
+  border: solid 1px black;
+  position: absolute;
+  top: 42px;
+  max-height: 450px;
+  overflow: scroll;
+  z-index: 3;
+}
+
+.notification-child{
+  width: 400px;
+  height: 50px;
+  padding: 5px 10px;
+  border-bottom: solid 1px gray;
+  text-align: center;
+}
+
+.delete-element{
+  padding: 5px;
+  margin-left: auto;
+  border-bottom: solid 1px gray;
+  background-color: #c5c5c5;
+  text-align: center;
+  cursor: pointer;
+  cursor: hand;
+}
