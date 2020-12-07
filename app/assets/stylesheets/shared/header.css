@@ -37,6 +37,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  position: relative;
 }
 
 .user-list a:hover{
@@ -49,8 +50,16 @@
   margin: 20px;
   padding: 10px;
   border: solid 1px #ffffff;
-  position: relative;
+}
 
+.notice-false{
+  height: 17px;
+  width: 17px;
+  background-color: greenyellow;
+  position: absolute;
+  top: 0;
+  left: 105px;
+  border-radius: 20px;
 }
 
 .notification-result{

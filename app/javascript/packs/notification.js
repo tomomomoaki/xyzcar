@@ -46,7 +46,7 @@ function notification () {
             }
 
             const childA = document.createElement("a");
-            childA.setAttribute("href", `/cars/${notification.car_id}`);
+            childA.setAttribute("href", `/cars/${notification.car_id}?notification_id=${notification.id}`);
             childA.innerHTML = `${sendUserNames[index]}さんが、あなたの投稿にコメントしました`;
 
             childElement.appendChild(childA);

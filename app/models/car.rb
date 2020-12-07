@@ -53,6 +53,6 @@ class Car < ApplicationRecord
       send_user_id: comment.user.id,
       transmitted_user_id: comment.car.user.id
     )
-    @notification.save
+    @notification.save unless @notification.send_user_id == @notification.transmitted_user_id
   end
 end

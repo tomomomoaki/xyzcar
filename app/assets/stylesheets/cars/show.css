@@ -170,6 +170,11 @@
   border: solid 1px gray;
 }
 
+.no-comment{
+  font-size: large;
+  text-align: center;
+}
+
 .comment{
   margin: 5px 20px 15px 20px;
 }

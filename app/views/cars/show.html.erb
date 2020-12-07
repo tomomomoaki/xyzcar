@@ -55,10 +55,10 @@
       <%= safe_join(@car.text.split("\r\n"), tag.br) %>
     </div>
     <div class='car-comment-box'>
-      <div class='comment-area'>
-        <% if @comments.blank? %>
-          現在、コメントはありません
-        <% else %>
+      <% if @comments.blank? %>
+        <div class='no-comment'>現在、コメントはありません</div>
+      <% else %>
+        <div class='comment-area'>
           <% @comments.each do |comment| %>
           <div class="comment">
             <div class='comment-user'>
@@ -69,8 +69,8 @@
             </div>
           </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <% if user_signed_in?%>
         <div class='comment-info'>
           相手のことを考え丁寧なコメントを心がけましょう。
