@@ -4,8 +4,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.valid?
-      @comment.save
-      @comment.car.save_notification_comment(@comment)
+      ActiveRecord::Base.transaction do
+        @comment.save
+        @comment.car.save_notification_comment(@comment)
+      end
       redirect_to car_path(@comment.car)
     else
       @car = @comment.car

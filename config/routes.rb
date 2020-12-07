@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
+  resources :notifications, only: :index do
+    collection do
+      get 'search_notification'
+    end
+  end
 end
