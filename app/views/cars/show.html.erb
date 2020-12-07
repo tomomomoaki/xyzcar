@@ -56,16 +56,16 @@
     </div>
     <div class='car-comment-box'>
       <div class='comment-area'>
-        <% if @car.comments.blank? %>
+        <% if @comments.blank? %>
           現在、コメントはありません
         <% else %>
-          <% @car.comments.each do |comment| %>
+          <% @comments.each do |comment| %>
           <div class="comment">
             <div class='comment-user'>
               <%=link_to comment.user.nickname, user_path(comment.user) %>
             </div>
-            <div class='comment-text'>
-              <%= safe_join(comment.text.split("\r\n"), tag.br) %>
+            <div>
+              <span class='comment-text'><%= safe_join(comment.text.split("\r\n"), tag.br) %></span>
             </div>
           </div>
           <% end %>

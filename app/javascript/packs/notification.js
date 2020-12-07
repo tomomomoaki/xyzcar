@@ -39,6 +39,11 @@ function notification () {
           notificationLink.forEach(function(notification, index) {
             const childElement = document.createElement("div");
             childElement.setAttribute("class", "notification-child");
+            if (notification.notice) {
+              childElement.setAttribute("style", "background-color: #ffffff;");
+            }else{
+              childElement.setAttribute("style", "background-color: #deffe0;");
+            }
 
             const childA = document.createElement("a");
             childA.setAttribute("href", `/cars/${notification.car_id}`);

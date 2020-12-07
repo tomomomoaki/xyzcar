@@ -29,6 +29,7 @@ class CarsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @car.comments.order('created_at desc')
   end
 
   def edit
