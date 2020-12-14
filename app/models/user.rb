@@ -11,4 +11,11 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'send_user_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'transmitted_user_id', dependent: :destroy
 
+  def self.guest
+    find_or_create_by(email: "tarou@gmail.com") do |user|
+      user.password = "123qaz"
+    end
+  end
+
+
 end
