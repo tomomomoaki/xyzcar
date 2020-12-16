@@ -80,8 +80,8 @@
             <div class='comment-user'>
               <%=link_to comment.user.nickname, user_path(comment.user) %>
             </div>
-            <div>
-              <span class='comment-text'><%= safe_join(comment.text.split("\r\n"), tag.br) %></span>
+            <div class='comment-blue'>
+              <%= safe_join(comment.text.split("\r\n"), tag.br) %>
             </div>
           </div>
           <% end %>
