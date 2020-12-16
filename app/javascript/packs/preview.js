@@ -37,7 +37,7 @@ function preview () {
 
     const selectHTMLText = document.createElement('div');
     selectHTMLText.setAttribute('class', 'select-file-text');
-    selectHTMLText.innerHTML = '画像を追加';
+    selectHTMLText.innerHTML = '画像を追加（最大10枚）';
 
     const selectFileBox = document.getElementById("select-file-box");
 

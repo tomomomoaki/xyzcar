@@ -87,3 +87,5 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 group :development do
   gem 'rubocop', require: false
 end
+
+gem 'rails-i18n'

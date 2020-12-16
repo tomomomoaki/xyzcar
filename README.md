@@ -65,11 +65,16 @@
 
 | Column             | Type       | Options                       |
 | ------------------ | ---------- | ----------------------------- |
+| genre_id           | string     | null: false                   |
 | title              | string     | null: false                   |
 | text               | text       | null: false                   |
-| maker_id           | string     | null: false                   |
-| car_name           | string     | null: false                   |
-| body_type_id       | string     | null: false                   |
+| maker_id           | string     |                               |
+| car_name           | string     |                               |
+| grade              | string     |                               |
+| body_type_id       | string     |                               |
+| new_or_old_id      | string     |                               |
+| price              | integer    |                               |
+| evaluation_id      | string     |                               |
 | user               | references | null: false, foreign_key: true|
 
 ### Association
@@ -112,6 +117,16 @@
 | user            | references | null: false, foreign_key :true |
 | car             | references | null: false, foreign_key :true |
 
+## notifications テーブル
+
+| Column              | Type       | Options                       |
+| ------------------- | ---------- | ----------------------------- |
+| car_id              | integer    | null: false                   |
+| comment_id          | integer    | null: false                   |
+| send_user_id        | integer    | null: false                   |
+| transmitted_user_id | integer    | null: false                   |
+| notice              | boolean    | null: false, default: false   |
+
 
 ### Association
 
@@ -119,7 +134,7 @@
 - belongs_to :car
 
 # ER図
-https://i.gyazo.com/6d7da5e46c472e34f993c0734ec997a5.png
+https://gyazo.com/ab2b195cc465dd58386317f56b3e77c9
 
 # 画面遷移図
 https://gyazo.com/045b7534f3c278a3315d78e76f9d80a0

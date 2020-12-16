@@ -1,5 +1,7 @@
 .error-alert{
   padding: 10px 20px;
+  background-color: rgb(189, 224, 224);
+  border-radius: 20px;
 }
 
 .error-message{

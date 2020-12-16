@@ -2,6 +2,9 @@ class Car < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :maker
   belongs_to_active_hash :body_type
+  belongs_to_active_hash :genre
+  belongs_to_active_hash :new_or_old
+  belongs_to_active_hash :evaluation
 
   belongs_to :user
   has_many :car_tags, dependent: :destroy

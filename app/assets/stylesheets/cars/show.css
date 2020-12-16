@@ -50,8 +50,9 @@
   padding: 20px;
 }
 
-.mnb{
-  color: blue;
+.car-genre{
+  font-size: 20px;
+  color: #333333;
 }
 
 .car-user-name-box{
@@ -79,6 +80,22 @@
   padding: auto;
   background-color: darkred;
   color: white;
+  text-align: center;
+}
+
+.car-list-box{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.car-list-left-name{
+  background-color: #cccccc;
+}
+
+.car-list{
+  padding: 5px 10px;
+  border: 1px solid gray;
   text-align: center;
 }
 
@@ -171,7 +188,7 @@
 }
 
 .no-comment{
-  font-size: large;
+  font-size: 15px;
   text-align: center;
 }
 

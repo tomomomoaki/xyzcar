@@ -11,9 +11,7 @@
       </div>
       <div class='car-mnb-time'>
         <div>
-          <span class='mnb'><%= @car.maker.name %>   /</span>
-          <span class='mnb'><%= @car.car_name %>   /</span>
-          <span class='mnb'><%= @car.body_type.name %></span>
+          <span class='car-genre'>【<%=@car.genre.name%>】</span>
         </div>
         <div>
           <span class='spans'><%= @car.created_at.strftime('%Y/%m/%d') %></span>
@@ -28,6 +26,24 @@
             <%= link_to '編集', edit_car_path(@car), class:'car-edit-btn', id:'car-edit-btn' %>
             <%= link_to '削除', car_path(@car), method: :delete, class:'car-delete-btn', id:'car-delete-btn' %>
           <% end %>
+        </div>
+      </div>
+      <div class='car-list-box'>
+        <div class='car-list-left-name'>
+          <% unless @car.maker_id == "1" %><div class='car-list'>メーカー</div><% end %>
+          <% unless @car.car_name.blank? %><div class='car-list'>車名</div><% end %>
+          <% unless @car.grade.blank? %><div class='car-list'>グレード</div><% end %>
+          <% unless @car.body_type_id == "1" %><div class='car-list'>ボディタイプ</div><% end %>
+          <% unless @car.price.blank? %><div class='car-list'>価格</div><% end %>
+          <% unless @car.evaluation_id == "1" %><div class='car-list'>レビュー者の評価</div><% end %>
+        </div>
+        <div class='car-list-right-name'>
+          <% unless @car.maker_id == "1" %><div class='car-list'><%=@car.maker.name%></div><% end %>
+          <% unless @car.car_name.blank? %><div class='car-list'><%=@car.car_name%></div><% end %>
+          <% unless @car.grade.blank? %><div class='car-list'><%=@car.grade%></div><% end %>
+          <% unless @car.body_type_id == "1" %><div class='car-list'><%=@car.body_type.name%></div><% end %>
+          <% unless @car.price.blank? %><div class='car-list'><%=@car.new_or_old.name%>    <%=@car.price%>万円</div><% end %>
+          <% unless @car.evaluation_id == "1" %><div class='car-list'><%=@car.evaluation.name%></div><% end %>
         </div>
       </div>
     </div>

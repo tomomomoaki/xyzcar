@@ -1,4 +1,8 @@
 ja:
-  time:
-    formats:
-      default: "%Y/%m/%d %H:%M:%S"
+  activemodel:
+    attributes:
+      save_cars_tag:
+        genre_id: 「投稿ジャンル」
+        title: 「タイトル」
+        text: 「本文」
+        images: 「画像」

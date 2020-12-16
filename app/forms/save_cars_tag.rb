@@ -1,9 +1,10 @@
 class SaveCarsTag
   include ActiveModel::Model
-  attr_accessor :title, :old_ids, :images, :text, :maker_id, :car_name, :body_type_id, :name, :user_id
+  attr_accessor :genre_id, :title, :old_ids, :images, :text, :maker_id, :car_name, :grade, :body_type_id, :name, :new_or_old_id, :price, :evaluation_id, :user_id
 
   with_options presence: true do
-    validates :title, length: { maximum: 50 }
+    validates :genre_id, numericality: { other_than: 1 , message: 'を選択してください'}
+    validates :title, length: { maximum: 50 , message: 'は50字以内で入力してください'}
     validates :text
   end
   validates :images, length: { maximum: 10 }
@@ -29,7 +30,7 @@ class SaveCarsTag
       @car.images.each do |image|
         old_images << image
       end
-      @car.update(title: title, images: old_images, text: text, maker_id: maker_id, car_name: car_name, body_type_id: body_type_id, user_id: user_id)
+      @car.update(genre_id: genre_id, title: title, images: old_images, text: text, maker_id: maker_id, car_name: car_name, grade: grade, body_type_id: body_type_id, new_or_old_id: new_or_old_id, price: price, evaluation_id: evaluation_id, user_id: user_id)
 
       # // @carに紐付くタグがあれば、car_tagsテーブルの紐付くレコードを全て消去する
       @car.car_tags.each do |tag|
@@ -56,14 +57,19 @@ class SaveCarsTag
   attr_reader :car
 
   def default_attributes
-    {
+    { 
+      genre_id: car.genre_id,
       title: car.title,
       images: car.images,
       text: car.text,
       maker_id: car.maker_id,
       car_name: car.car_name,
+      grade: car.grade,
       body_type_id: car.body_type_id,
-      name: car.tags.pluck(:name).join(',')
+      name: car.tags.pluck(:name).join(','),
+      new_or_old_id: car.new_or_old_id, 
+      price: car.price, 
+      evaluation_id: car.evaluation_id
     }
   end
 end

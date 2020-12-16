@@ -43,15 +43,20 @@ ActiveRecord::Schema.define(version: 2020_12_03_131953) do
   end
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "genre_id", null: false
     t.string "title", null: false
+    t.string "images"
     t.text "text", null: false
-    t.string "maker_id", null: false
-    t.string "car_name", null: false
-    t.string "body_type_id", null: false
+    t.string "maker_id"
+    t.string "car_name"
+    t.string "grade"
+    t.string "body_type_id"
+    t.string "new_or_old_id"
+    t.integer "price"
+    t.string "evaluation_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "images"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
